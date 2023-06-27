@@ -14,6 +14,7 @@ CTRL + ALT + A to toggle Tawilwind Code readability
 
 2. Mobile
     - Build out and style Navbar component
+    - Make burger menu hide when it hits certain breakpoint
     - Fetch with OpenWeather air pollution API (start with one number)
     - Design mobile component
     - Conditionals to render a range of 'poor' to 'good. And final number

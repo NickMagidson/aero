@@ -25,7 +25,7 @@ export default function Navbar({ fixed }) {
           </div>
           <div
             className={
-              "lg:flex flex-grow items-center" +
+              "lg:flex flex-grow justify-center items-center" +
               (navbarOpen ? " flex" : " hidden")
             }
             id="example-navbar-danger"
@@ -33,17 +33,17 @@ export default function Navbar({ fixed }) {
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
               <li className="nav-item">
                 <a className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#pablo">
-                  <span className="ml-2">Share</span>
+                  <span className="m-auto">Overview</span>
                 </a>
               </li>
               <li className="nav-item">
                 <a  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#pablo">
-                  <span className="ml-2">Tweet</span>
+                  <span className="m-auto">Map</span>
                 </a>
               </li>
               <li className="nav-item">
                 <a className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#pablo">
-                  <span className="ml-2">Pin</span>
+                  <span className="m-auto">Graph</span>
                 </a>
               </li>
             </ul>
