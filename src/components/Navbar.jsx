@@ -32,17 +32,17 @@ export default function Navbar({ fixed }) {
           >
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
               <li className="nav-item">
-                <a className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#pablo">
+                <a className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
                   <span className="m-auto">Overview</span>
                 </a>
               </li>
               <li className="nav-item">
-                <a  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#pablo">
+                <a  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
                   <span className="m-auto">Map</span>
                 </a>
               </li>
               <li className="nav-item">
-                <a className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#pablo">
+                <a className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
                   <span className="m-auto">Graph</span>
                 </a>
               </li>
