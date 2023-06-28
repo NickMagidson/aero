@@ -1,17 +1,16 @@
 import React from "react";
-import Menu from '../../public/menu.svg'
+import Menu from '../../public/menu2.png'
 import Image from "next/image";
 
 export default function Navbar({ fixed }) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
     <>
-      <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-slate-500 mb-3">
+      <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-gradient-to-r from-gray-700 via-gray-900 to-black">
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
             <a
-              className="text-md font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
-              href="#pablo"
+              className="text-xl font-200 leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
             >
               Aero
             </a>
@@ -20,7 +19,7 @@ export default function Navbar({ fixed }) {
               type="button"
               onClick={() => setNavbarOpen(!navbarOpen)}
             >
-              <Image src={Menu} width={25} alt="Burger menu icon"/>
+              <Image src={Menu} width={40} alt="Burger menu icon"/>
             </button>
           </div>
           <div

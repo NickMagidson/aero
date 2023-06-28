@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
+
 import AirPollution from './airData/index'
 
 const inter = Inter({ subsets: ['latin'] })

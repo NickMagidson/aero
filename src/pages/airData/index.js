@@ -18,7 +18,9 @@ export default function AirPollution() {
 
         setData({
           location: data.coord && `${data.coord.lat}, ${data.coord.lon}`,
-          aqi: data.list && data.list[0]?.main?.aqi
+          co: data.list && data.list[0].components.co
+          
+          // another thing:
         });
       } catch (error) {
         console.error('Error fetching air pollution data:', error);
@@ -31,11 +33,10 @@ export default function AirPollution() {
 
   return (
     <div>
-      <h1>Air Pollution Data</h1>
       {data ? (
         <>
-          <p>Location: {data.location}</p>
-          <p>Air Quality Index (AQI): {data.aqi}</p>
+          <h1 className="text-4xl text-center">{data.co}</h1>
+          {/* <p>Location: {data.location}</p> */}
         </>
       ) : (
         <p>Loading...</p>
