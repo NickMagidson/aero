@@ -36,6 +36,9 @@ export default function AirPollution() {
         <>
           <h1 className="text-5xl text-center">{data.components.co}</h1>
           {/* <p>Location: {data.location}</p> */}
+          <div> 
+            {/* <h3>no: <span>0.25</span><h3> */}
+          </div>
         </>
       ) : (
         <p>Loading...</p>

@@ -20,6 +20,8 @@ CTRL + ALT + A to toggle Tawilwind Code readability
     - Pick 2 fonts  
   - Make burger menu hide when it hits certain breakpoint
   - Design mobile component
+   - Glassmorphism and all the air compounds rendered in it
+   - Main score will most likley be above with score arc
   - Conditionals to render a range of 'poor' to 'good. And final number
   - Credit Karma style UI (probably a package for this)
 
