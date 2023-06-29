@@ -12,10 +12,21 @@ CTRL + ALT + A to toggle Tawilwind Code readability
   - ~~API fetch testing for proof-of-concept~~
   - ~~Create repo~~
 
-2. Mobile
-    - Build out and style Navbar component
-    - Make burger menu hide when it hits certain breakpoint
-    - Fetch with OpenWeather air pollution API (start with one number)
-    - Design mobile component
-    - Conditionals to render a range of 'poor' to 'good. And final number
-    - Credit Karma style UI (probably a package for this)
+2. Mobile Basic
+  - ~~Fetch with OpenWeather air pollution API (start with one number)~~
+  - ~~Build out Navbar component~~
+  - Style Navbar:
+    - ~~Air menu icon~~
+    - Pick 2 fonts  
+  - Make burger menu hide when it hits certain breakpoint
+  - Design mobile component
+  - Conditionals to render a range of 'poor' to 'good. And final number
+  - Credit Karma style UI (probably a package for this)
+
+
+3. Map Integration
+4. Data Visualization
+
+
+Other notes:
+- Mobile: menu on left and search in middle. Ease in from bottom for info. App inspired

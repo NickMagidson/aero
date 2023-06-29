@@ -18,9 +18,8 @@ export default function AirPollution() {
 
         setData({
           location: data.coord && `${data.coord.lat}, ${data.coord.lon}`,
-          co: data.list && data.list[0].components.co
-          
-          // another thing:
+          components: data.list && data.list[0].components
+          // co, no, no2, o3, so2, pm2_5, pm10, nh3
         });
       } catch (error) {
         console.error('Error fetching air pollution data:', error);
@@ -35,12 +34,13 @@ export default function AirPollution() {
     <div>
       {data ? (
         <>
-          <h1 className="text-4xl text-center">{data.co}</h1>
+          <h1 className="text-5xl text-center">{data.components.co}</h1>
           {/* <p>Location: {data.location}</p> */}
         </>
       ) : (
         <p>Loading...</p>
       )}
+      <div className='h-full w-full bg-blue-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border border-gray-100'></div>
     </div>
   );
 }
