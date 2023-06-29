@@ -31,4 +31,5 @@ CTRL + ALT + A to toggle Tawilwind Code readability
 
 
 Other notes:
+- Search functionaloty will come when map is in the picture
 - Mobile: menu on left and search in middle. Ease in from bottom for info. App inspired
