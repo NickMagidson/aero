@@ -9,3 +9,20 @@ body {
   background: -webkit-linear-gradient(90deg, hsla(194, 45%, 71%, 1) 0%, hsla(0, 0%, 95%, 1) 100%);
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#93C6D6", endColorstr="#F3F3F3", GradientType=1 );
 }
+
+
+
+/* MEDIA QUERIES */
+
+
+/* Small devices (landscape phones, less than 768px) */
+@media (min-width: 768px) {
+  
+
+
+}
+
+/* Desktops */
+/* @media (min-width: 1440px) {
+
+} */
