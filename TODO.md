@@ -18,12 +18,12 @@ CTRL + ALT + A to toggle Tawilwind Code readability
   - Style Navbar:
     - ~~Air menu icon~~
     - Pick 2 fonts  
-  - Make burger menu hide when it hits certain breakpoint
+  - ~~Make burger menu hide when it hits certain breakpoint~~
   - Design mobile component
    - Glassmorphism and all the air compounds rendered in it
    - Main score will most likley be above with score arc
   - Conditionals to render a range of 'poor' to 'good. And final number
-  - Credit Karma style UI (probably a package for this)
+  - Credit Karma style UI (react-gauge-chart)
 
 
 3. Map Integration
@@ -31,5 +31,6 @@ CTRL + ALT + A to toggle Tawilwind Code readability
 
 
 Other notes:
-- Search functionaloty will come when map is in the picture
-- Mobile: menu on left and search in middle. Ease in from bottom for info. App inspired
+  - Search functionaloty will come when map is in the picture
+  - Mobile: menu on left and search in middle. Ease in from bottom for info. App inspired
+  - Load spinner!

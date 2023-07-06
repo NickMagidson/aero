@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+import { Inter } from 'next/font/google'
+const inter = Inter({ subsets: ['latin'] })
+
 export default function AirPollution() {
   const [data, setData] = useState(null);
 
@@ -34,11 +37,17 @@ export default function AirPollution() {
     <div>
       {data ? (
         <>
-          <h1 className="text-5xl text-center">{data.components.co}</h1>
+          <h1 className={`text-5xl text-center ${inter.className}`}>{data.components.co}</h1>
           {/* <p>Location: {data.location}</p> */}
-          <div> 
-            {/* <h3>no: <span>0.25</span><h3> */}
-          </div>
+          {/* <div className="h-full w-full bg-gray-500 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50 border border-gray-100"> 
+            <h3>no: <span>{data.components.no}</span></h3>
+            <h3>no2: <span>{data.components.no2}</span></h3>
+            <h3>o3: <span>{data.components.o3}</span></h3>
+            <h3>so2: <span>{data.components.so2}</span></h3>
+            <h3>pm2_5: <span>{data.components.pm2_5}</span></h3>
+            <h3>pm10: <span>{data.components.pm10}</span></h3>
+            <h3>nh3: <span>{data.components.nh3}</span></h3>
+          </div> */}
         </>
       ) : (
         <p>Loading...</p>
