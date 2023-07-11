@@ -3,6 +3,7 @@ import Navbar from "./Navbar"
 
 const Layout = ({ children }) => {
   return (
+    // Make whole app no scroll
     <div className="content">
       <Navbar />
       { children }

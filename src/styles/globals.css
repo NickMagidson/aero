@@ -2,13 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+html, body {
+  height: 100%;
   background: hsla(194, 45%, 71%, 1);
   background: linear-gradient(90deg, hsla(194, 45%, 71%, 1) 0%, hsla(0, 0%, 95%, 1) 100%);
   background: -moz-linear-gradient(90deg, hsla(194, 45%, 71%, 1) 0%, hsla(0, 0%, 95%, 1) 100%);
   background: -webkit-linear-gradient(90deg, hsla(194, 45%, 71%, 1) 0%, hsla(0, 0%, 95%, 1) 100%);
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#93C6D6", endColorstr="#F3F3F3", GradientType=1 );
 }
+
+.content {
+  min-height: 100vh;
+  position: relative;
+}
+
 
 
 

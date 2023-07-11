@@ -11,7 +11,7 @@ export default function Home() {
       <Head>
         <title>Aero | Air Pollution Tracker</title>
       </Head>
-      <main className={`flex min-h-screen flex-col items-center justify-between p-16 ${inter.className}`}>
+      <main className={`flex flex-col items-center justify-between p-16 overscroll-none ${inter.className}`}>
         <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
           <AirPollution />
         </div>
