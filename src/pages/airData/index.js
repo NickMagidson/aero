@@ -8,6 +8,7 @@ export default function AirData() {
   const [data, setData] = useState(null);
 
   const API_KEY = '67224de3b5da9b6e57e30c7be68cd834';
+  // Tokyo coordinates for reference
   const LATITUDE = 35.6762;
   const LONGITUDE = 139.6503;
   
@@ -30,16 +31,27 @@ export default function AirData() {
         setData(null);
       }
 
-      // if (data.aqi === 1) { console.log('Good') } 
-      //   else if (data.aqi === 2) { console.log('Fair') }  
-      //   else if (data.aqi === 3) { console.log('Moderate') }
-      //   else if (data.aqi === 4) { console.log('Poor') }
-      //   else if (data.aqi === 5) { console.log('Very poor') }
 
     };
 
+
     fetchData();
   }, []);
+
+  
+  if (data && data.aqi === 1) {
+    console.log('Good');
+  } else if (data && data.aqi === 2) {
+    console.log('Fair');
+  } else if (data && data.aqi === 3) {
+    console.log('Moderate');
+  } else if (data && data.aqi === 4) {
+    console.log('Poor');
+  } else if (data && data.aqi === 5) {
+    console.log('Very poor');
+  } else {
+    console.log('Unable to determine air quality');
+  }
 
   return (
     <div className="p-5 h-full w-full bg-gray-500 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50 border border-gray-100">
