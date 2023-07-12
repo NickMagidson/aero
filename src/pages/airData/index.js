@@ -30,11 +30,7 @@ export default function AirData() {
         console.error('Error fetching air pollution data:', error);
         setData(null);
       }
-
-
     };
-
-
     fetchData();
   }, []);
 
@@ -57,7 +53,14 @@ export default function AirData() {
     <div className="p-5 h-full w-full bg-gray-500 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50 border border-gray-100">
     {data ? (
       <>
-        <h1 className={`text-5xl text-center ${inter.className}`}>{data.components.co}</h1>
+        <h1 className={`text-5xl text-center ${inter.className}`}>
+          {data.aqi === 1 && 'Good'}
+          {data.aqi === 2 && 'Fair'}
+          {data.aqi === 3 && 'Moderate'}
+          {data.aqi === 4 && 'Poor'}
+          {data.aqi === 5 && 'Very poor'}
+          {!data.aqi && 'Unable to determine air quality'}
+        </h1>
         {/* <p>Location: {data.location}</p> */}
         <div className={`text-lg text-center p-5 flex flex-col ${inter.className}`}> 
           {Object.entries(data.components).map(([key, value]) => (
