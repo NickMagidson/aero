@@ -43,25 +43,21 @@ export default function AirData() {
 
   return (
     <div className="p-5 h-full w-full bg-gray-500 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50 border border-gray-100">
-      {data ? (
-        <>
-          <h1 className={`text-5xl text-center ${inter.className}`}>{data.components.co}</h1>
-          {/* <p>Location: {data.location}</p> */}
-          <div className={`text-lg text-center p-5 flex flex-col ${inter.className}`}> 
-            <h3 className='text-left text-xl'>no: <span className="text-base">{data.components.no}</span></h3>
-            <h3 className='text-left text-xl'>no2: <span className="text-base">{data.components.no2}</span></h3>
-            <h3 className='text-left text-xl'>o3: <span className="text-base">{data.components.o3}</span></h3>
-            <h3 className='text-left text-xl'>so2: <span className="text-base">{data.components.so2}</span></h3>
-            <h3 className='text-left text-xl'>pm2_5: <span className="text-base">{data.components.pm2_5}</span></h3>
-            <h3 className='text-left text-xl'>pm10: <span className="text-base">{data.components.pm10}</span></h3>
-            <h3 className='text-left text-xl'>nh3: <span className="text-base">{data.components.nh3}</span></h3>
-            <h3 className='text-left text-xl'>aqi: <span className="text-base">{data.aqi}</span></h3>
-          </div>
-        </>
-      ) : (
-        <p>Loading...</p>
-      )}
-      <div className='h-full w-full bg-blue-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border border-gray-100'></div>
-    </div>
+    {data ? (
+      <>
+        <h1 className={`text-5xl text-center ${inter.className}`}>{data.components.co}</h1>
+        {/* <p>Location: {data.location}</p> */}
+        <div className={`text-lg text-center p-5 flex flex-col ${inter.className}`}> 
+          {Object.entries(data.components).map(([key, value]) => (
+            <h3 className='text-left text-xl' key={key}>{key}: <span className="text-base">{value}</span></h3>
+          ))}
+          <h3 className='text-left text-xl'>aqi: <span className="text-base">{data.aqi}</span></h3>
+        </div>
+      </>
+    ) : (
+      <p>Loading...</p>
+    )}
+    <div className='h-full w-full bg-blue-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border border-gray-100'></div>
+  </div>
   );
 }
