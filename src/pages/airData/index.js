@@ -30,11 +30,12 @@ export default function AirData() {
         setData(null);
       }
 
-      if (data.aqi === 1) { return console.log('Good') } 
-        else if (data.aqi === 2) { return console.log('Fair') }  
-        else if (data.aqi === 3) { return console.log('Moderate') }
-        else if (data.aqi === 4) { return console.log('Poor') }
-        else if (data.aqi === 5) { return console.log('Very poor') }
+      // if (data.aqi === 1) { console.log('Good') } 
+      //   else if (data.aqi === 2) { console.log('Fair') }  
+      //   else if (data.aqi === 3) { console.log('Moderate') }
+      //   else if (data.aqi === 4) { console.log('Poor') }
+      //   else if (data.aqi === 5) { console.log('Very poor') }
+
     };
 
     fetchData();
