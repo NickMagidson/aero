@@ -53,7 +53,7 @@ export default function AirData() {
     <div className="p-5 h-full w-full bg-gray-500 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50 border border-gray-100">
     {data ? (
       <>
-        <h1 className={`text-5xl text-center ${inter.className}`}>
+        <h1 className={`text-5xl text-center mt-3 ${inter.className}`}>
           {data.aqi === 1 && 'Good'}
           {data.aqi === 2 && 'Fair'}
           {data.aqi === 3 && 'Moderate'}
@@ -61,6 +61,7 @@ export default function AirData() {
           {data.aqi === 5 && 'Very poor'}
           {!data.aqi && 'Unable to determine air quality'}
         </h1>
+        <hr class="my-8 h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50" />
         {/* <p>Location: {data.location}</p> */}
         <div className={`text-lg text-center p-5 flex flex-col ${inter.className}`}> 
           {Object.entries(data.components).map(([key, value]) => (
@@ -72,7 +73,6 @@ export default function AirData() {
     ) : (
       <p>Loading...</p>
     )}
-    <div className='h-full w-full bg-blue-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border border-gray-100'></div>
   </div>
   );
 }
