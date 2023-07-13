@@ -34,20 +34,6 @@ export default function AirData() {
     fetchData();
   }, []);
 
-  
-  if (data && data.aqi === 1) {
-    console.log('Good');
-  } else if (data && data.aqi === 2) {
-    console.log('Fair');
-  } else if (data && data.aqi === 3) {
-    console.log('Moderate');
-  } else if (data && data.aqi === 4) {
-    console.log('Poor');
-  } else if (data && data.aqi === 5) {
-    console.log('Very poor');
-  } else {
-    console.log('Unable to determine air quality');
-  }
 
   return (
     <div className="p-5 h-full w-full bg-gray-500 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50 border border-gray-100">
@@ -61,7 +47,7 @@ export default function AirData() {
           {data.aqi === 5 && 'Very poor'}
           {!data.aqi && 'Unable to determine air quality'}
         </h1>
-        <hr class="my-8 h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50" />
+        <hr className="my-8 h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50" />
         {/* <p>Location: {data.location}</p> */}
         <div className={`text-lg text-center p-5 flex flex-col ${inter.className}`}> 
           {Object.entries(data.components).map(([key, value]) => (
