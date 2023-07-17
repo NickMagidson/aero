@@ -55,9 +55,7 @@ export default function AirData() {
               { limit: 40 },
               { limit: 60 },
               { limit: 80 },
-              { limit: 100 },
-              {},
-              {}
+              { limit: 100 }
             ]
           }}
           pointer={{type: "arrow", animationDelay: 0 }}
