@@ -12,6 +12,10 @@ export default function AirData() {
   // Tokyo coordinates for reference
   const LATITUDE = 35.6762;
   const LONGITUDE = 139.6503;
+
+  const aqiValues = [null, 100, 70, 50, 30, 10];
+  const gaugeValue = aqiValues[data.aqi] || null;
+
   
   useEffect(() => {
     const fetchData = async () => {
@@ -57,18 +61,7 @@ export default function AirData() {
             ]
           }}
           pointer={{type: "arrow", animationDelay: 0 }}
-          value={
-            data.aqi === 5
-            ? 10
-            : data.aqi === 4
-            ? 30
-            : data.aqi === 3
-            ? 50
-            : data.aqi === 2
-            ? 70
-            : data.aqi === 1
-            ? 100
-            : null}
+          value={gaugeValue}
         />
         <h1 className={`text-5xl text-center mt-3 ${inter.className}`}>
           {data.aqi === 1 && 'Good'}
