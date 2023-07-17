@@ -71,11 +71,11 @@ export default function AirData() {
         </h1>
         <hr className="my-8 h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50" />
         {/* <p>Location: {data.location}</p> */}
-        <div className={`text-lg text-center p-5 flex flex-col ${inter.className}`}> 
+        <div className={`text-lg text-center p-5 flex flex-col ${inter.className} grid grid-cols-3 grid-rows-3 gap-3`}> 
           {Object.entries(data.components).map(([key, value]) => (
-            <h3 className='text-left text-xl' key={key}>{key}: <span className="text-base">{value}</span></h3>
+            <h3 className='text-left text-xl' key={key}>{value} <br/> <span className="text-base font-light">{key}:</span></h3>
           ))}
-          <h3 className='text-left text-xl'>aqi: <span className="text-base">{data.aqi}</span></h3>
+          <h3 className='text-left text-xl'>{data.aqi} <br/> <span className="text-base font-light">aqi: </span></h3>
         </div>
       </>
     ) : (
