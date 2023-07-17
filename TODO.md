@@ -21,7 +21,7 @@ CTRL + ALT + A to toggle Tawilwind Code readability
   - ~~Conditionals to render a range of 'poor' to 'good. And final number~~
   - Design mobile component
   - Credit Karma style UI (react-gauge-chart)
-    - value={} to be linked/referenced with whatever the index value will be.
+    - ~~value={} to be linked/referenced with whatever the index value will be.~~
     - Adjust the look of the component using the props and CSS id
 
 
