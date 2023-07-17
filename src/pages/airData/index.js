@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import GaugeComponent from 'react-gauge-component'
 
 import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
@@ -39,6 +40,36 @@ export default function AirData() {
     <div className="p-5 h-full w-full bg-gray-500 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50 border border-gray-100">
     {data ? (
       <>
+        <GaugeComponent
+          type="semicircle"
+          arc={{
+          colorArray: ['#FF2121', '#00FF15'],
+          padding: 0.02,
+          subArcs:
+            [
+              { limit: 20 },
+              { limit: 40 },
+              { limit: 60 },
+              { limit: 80 },
+              { limit: 100 },
+              {},
+              {}
+            ]
+          }}
+          pointer={{type: "arrow", animationDelay: 0 }}
+          value={
+            data.aqi === 5
+            ? 10
+            : data.aqi === 4
+            ? 30
+            : data.aqi === 3
+            ? 50
+            : data.aqi === 2
+            ? 70
+            : data.aqi === 1
+            ? 100
+            : null}
+        />
         <h1 className={`text-5xl text-center mt-3 ${inter.className}`}>
           {data.aqi === 1 && 'Good'}
           {data.aqi === 2 && 'Fair'}

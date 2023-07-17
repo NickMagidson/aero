@@ -15,15 +15,14 @@ CTRL + ALT + A to toggle Tawilwind Code readability
 2. Mobile Basic
   - ~~Fetch with OpenWeather air pollution API (start with one number)~~
   - ~~Build out Navbar component~~
-  - Style Navbar:
-    - ~~Air menu icon~~
-    - Pick 2 fonts  
+  - ~~Style Navbar~~
+  - ~~Air menu icon~~
   - ~~Make burger menu hide when it hits certain breakpoint~~
+  - ~~Conditionals to render a range of 'poor' to 'good. And final number~~
   - Design mobile component
-   - Glassmorphism and all the air compounds rendered in it
-   - Main score will most likley be above with score arc
-  - Conditionals to render a range of 'poor' to 'good. And final number
   - Credit Karma style UI (react-gauge-chart)
+    - value={} to be linked/referenced with whatever the index value will be.
+    - Adjust the look of the component using the props and CSS id
 
 
 3. Map Integration
