@@ -9,12 +9,13 @@ export default function AirData() {
   const [data, setData] = useState(null);
 
   const API_KEY = '67224de3b5da9b6e57e30c7be68cd834';
+
   // Tokyo coordinates for reference
   const LATITUDE = 35.6762;
   const LONGITUDE = 139.6503;
 
-  const aqiValues = [null, 100, 70, 50, 30, 10];
-  const gaugeValue = aqiValues[data.aqi] || null;
+  // const aqiValues = [null, 100, 70, 50, 30, 10];
+  // const gaugeValue = aqiValues[data.aqi] || null;
 
   
   useEffect(() => {
@@ -24,7 +25,6 @@ export default function AirData() {
           `http://api.openweathermap.org/data/2.5/air_pollution?lat=${LATITUDE}&lon=${LONGITUDE}&appid=${API_KEY}`
         );
         const { data } = response;
-
         setData({
           location: data.coord && `${data.coord.lat}, ${data.coord.lon}`,
           components: data.list && data.list[0].components,
@@ -41,9 +41,10 @@ export default function AirData() {
 
 
   return (
-    <div className="p-5 h-full w-full bg-gray-500 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50 border border-gray-100">
+    <div id='air-data-container' className="p-5 h-full w-full mt-auto mb-auto 2xl:mr-auto max-w-xs md:flex-row md:w-auto bg-gray-500 rounded-sm bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50 border border-gray-100">
     {data ? (
       <>
+      <div id='gauge-container'>
         <GaugeComponent
           type="semicircle"
           arc={{
@@ -59,9 +60,9 @@ export default function AirData() {
             ]
           }}
           pointer={{type: "arrow", animationDelay: 0 }}
-          value={gaugeValue}
+          value={50}
         />
-        <h1 className={`text-5xl text-center mt-3 ${inter.className}`}>
+        <h1 id='aqi' className={`text-4xl text-center p-5 ${inter.className}`}>
           {data.aqi === 1 && 'Good'}
           {data.aqi === 2 && 'Fair'}
           {data.aqi === 3 && 'Moderate'}
@@ -69,16 +70,20 @@ export default function AirData() {
           {data.aqi === 5 && 'Very poor'}
           {!data.aqi && 'Unable to determine air quality'}
         </h1>
+      </div>
+
+
         <hr className="my-8 h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50" />
         {/* <p>Location: {data.location}</p> */}
-        <div className={`text-lg text-center p-5 flex flex-col ${inter.className} grid grid-cols-3 grid-rows-3 gap-3`}> 
+        <div id='data-grid' className={`text-lg text-center p-5 flex flex-col ${inter.className} grid grid-cols-3 grid-rows-3 gap-3`}> 
           {Object.entries(data.components).map(([key, value]) => (
-            <h3 className='text-left text-xl' key={key}>{value} <br/> <span className="text-base font-light">{key}:</span></h3>
+            <h3 className='text-left text-base' key={key}>{value} <br/> <span className="text-base font-light">{key}:</span></h3>
           ))}
-          <h3 className='text-left text-xl'>{data.aqi} <br/> <span className="text-base font-light">aqi: </span></h3>
+          <h3 className='text-left text-base'>{data.aqi} <br/> <span className="text-base font-light">aqi: </span></h3>
         </div>
       </>
     ) : (
+      // Use React load spinner from previous project
       <p>Loading...</p>
     )}
   </div>

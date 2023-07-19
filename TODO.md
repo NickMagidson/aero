@@ -23,9 +23,11 @@ CTRL + ALT + A to toggle Tawilwind Code readability
   - Credit Karma style UI (react-gauge-chart)
     - ~~value={} to be linked/referenced with whatever the index value will be.~~
     - Adjust the look of the component using the props and CSS id
+  - Location input functionality (coord input?, then location wirth geocoding API)
 
 
 3. Map Integration
+  - Impliment LEaflet to be a full screen map
 4. Data Visualization
 
 

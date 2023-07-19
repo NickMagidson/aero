@@ -17,19 +17,11 @@ html, body {
 }
 
 
-
-
-/* MEDIA QUERIES */
-
-
-/* Small devices (landscape phones, less than 768px) */
-@media (min-width: 768px) {
-  
-
-
-}
-
-/* Desktops */
-/* @media (min-width: 1440px) {
-
+/* #air-data-container,
+#data-grid,
+#gauge-container {
+  border-radius: 49px;
+  background: #e0e0e0;
+  box-shadow: 19px 19px 38px #8d8d8d,
+             -19px -19px 38px #ffffff;
 } */
