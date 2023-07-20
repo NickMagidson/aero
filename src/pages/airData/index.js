@@ -6,7 +6,7 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function AirData() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState('');
 
   const API_KEY = '67224de3b5da9b6e57e30c7be68cd834';
 
@@ -14,8 +14,8 @@ export default function AirData() {
   const LATITUDE = 35.6762;
   const LONGITUDE = 139.6503;
 
-  // const aqiValues = [null, 100, 70, 50, 30, 10];
-  // const gaugeValue = aqiValues[data.aqi] || null;
+  const aqiValues = [null, 100, 70, 50, 30, 10];
+  const gaugeValue = aqiValues[data.aqi] || null;
 
   
   useEffect(() => {
@@ -60,7 +60,7 @@ export default function AirData() {
             ]
           }}
           pointer={{type: "arrow", animationDelay: 0 }}
-          value={50}
+          value={gaugeValue}
         />
         <h1 id='aqi' className={`text-4xl text-center p-5 ${inter.className}`}>
           {data.aqi === 1 && 'Good'}
