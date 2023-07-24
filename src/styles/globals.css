@@ -16,6 +16,13 @@ html, body {
   position: relative;
 }
 
+#map-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
 
 /* #air-data-container,
 #data-grid,
@@ -24,4 +31,4 @@ html, body {
   background: #e0e0e0;
   box-shadow: 19px 19px 38px #8d8d8d,
              -19px -19px 38px #ffffff;
-} */
+}  */

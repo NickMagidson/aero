@@ -12,25 +12,28 @@ CTRL + ALT + A to toggle Tawilwind Code readability
   - ~~API fetch testing for proof-of-concept~~
   - ~~Create repo~~
 
-2. Mobile Basic
+2. Air Data Component
   - ~~Fetch with OpenWeather air pollution API (start with one number)~~
   - ~~Build out Navbar component~~
   - ~~Style Navbar~~
   - ~~Air menu icon~~
   - ~~Make burger menu hide when it hits certain breakpoint~~
   - ~~Conditionals to render a range of 'poor' to 'good. And final number~~
-  - Design mobile component
-  - Credit Karma style UI (react-gauge-chart)
-    - ~~value={} to be linked/referenced with whatever the index value will be.~~
-    - Adjust the look of the component using the props and CSS id
-  - Location input functionality (coord input?, then location wirth geocoding API)
+  - ~~Credit Karma style UI (react-gauge-chart)~~
+  - ~~value={} to be linked/referenced with whatever the index value will be.~~
+  - Design the component
+  - Location input functionality (coord input?, then location with geocoding API)
 
 
 3. Map Integration
-  - Impliment LEaflet to be a full screen map
+  - ~~Implement Leaflet to be a full screen map~~
+  - Link the coorodinates with the API data
+  - Adjust map controls and functionality
+
+
+
+
 4. Data Visualization
-
-
 Other notes:
   - Search functionaloty will come when map is in the picture
   - Mobile: menu on left and search in middle. Ease in from bottom for info. App inspired

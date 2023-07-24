@@ -41,7 +41,10 @@ export default function AirData() {
 
 
   return (
-    <div id='air-data-container' className="p-5 h-full w-full mt-auto mb-auto 2xl:mr-auto max-w-xs md:flex-row md:w-auto bg-gray-500 rounded-sm bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50 border border-gray-100">
+    <div 
+      id='air-data-container' 
+      className="z-10 p-5 h-auto w-full mt-auto mb-auto 2xl:absolute 2xl:mr-auto max-w-xs md:flex-row md:w-auto 
+          bg-gray-500 rounded-sm bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50 border border-gray-100">
     {data ? (
       <>
       <div id='gauge-container'>
