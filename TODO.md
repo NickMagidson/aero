@@ -23,7 +23,8 @@ CTRL + ALT + A to toggle Tawilwind Code readability
   - ~~value={} to be linked/referenced with whatever the index value will be.~~
   - Design the component
   - Location input functionality (coord input?, then location with geocoding API)
-
+    - Add the search bar
+    - Implement the geocoding API
 
 3. Map Integration
   - ~~Implement Leaflet to be a full screen map~~

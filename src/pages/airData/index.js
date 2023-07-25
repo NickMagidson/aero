@@ -77,7 +77,7 @@ export default function AirData() {
 
 
         <hr className="my-8 h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50" />
-        {/* <p>Location: {data.location}</p> */}
+        {/* <p className='text-center'>Location: <br /> {data.location}</p> */}
         <div id='data-grid' className={`text-lg text-center p-5 flex flex-col ${inter.className} grid grid-cols-3 grid-rows-3 gap-3`}> 
           {Object.entries(data.components).map(([key, value]) => (
             <h3 className='text-left text-base' key={key}>{value} <br/> <span className="text-base font-light">{key}:</span></h3>
