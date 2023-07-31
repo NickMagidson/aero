@@ -36,6 +36,6 @@ CTRL + ALT + A to toggle Tawilwind Code readability
 
 4. Data Visualization
 Other notes:
-  - Search functionaloty will come when map is in the picture
+  - Search functionality will come when map is in the picture
   - Mobile: menu on left and search in middle. Ease in from bottom for info. App inspired
   - Load spinner!
