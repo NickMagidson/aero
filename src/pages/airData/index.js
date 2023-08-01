@@ -43,9 +43,9 @@ export default function AirData() {
   return (
     <div 
       id='air-data-container' 
-      className="z-10 p-5 h-auto w-full mt-auto mb-auto 2xl:absolute 2xl:mr-auto max-w-xs md:flex-row md:w-auto 
-          bg-gray-500 rounded-sm bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50 border border-gray-100">
-    {data ? (
+      className="z-10 p-5 h-auto w-auto
+          bg-gray-500 rounded-2xl bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50 border border-gray-100">
+      {data ? (
       <>
       <div id='gauge-container'>
         <GaugeComponent
@@ -78,6 +78,7 @@ export default function AirData() {
 
         <hr className="my-8 h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50" />
         {/* <p className='text-center'>Location: <br /> {data.location}</p> */}
+       
         <div id='data-grid' className={`text-lg text-center p-5 flex flex-col ${inter.className} grid grid-cols-3 grid-rows-3 gap-3`}> 
           {Object.entries(data.components).map(([key, value]) => (
             <h3 className='text-left text-base' key={key}>{value} <br/> <span className="text-base font-light">{key}:</span></h3>

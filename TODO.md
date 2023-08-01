@@ -23,8 +23,10 @@ CTRL + ALT + A to toggle Tawilwind Code readability
   - ~~value={} to be linked/referenced with whatever the index value will be.~~
   - Design the component
   - Location input functionality (coord input?, then location with geocoding API)
-    - Add the search bar
+    - Add the search bar input
     - Implement the geocoding API
+    - Make the search function with the AirData component
+    - Then link / reference to the map. So on search, set map change and dWata change
 
 3. Map Integration
   - ~~Implement Leaflet to be a full screen map~~
