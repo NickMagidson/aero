@@ -1,6 +1,6 @@
 
 interface SearchBarProps {
-  
+  //
 }
 
 const SearchBar: React.FC<SearchBarProps> = () => {
