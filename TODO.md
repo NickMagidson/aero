@@ -11,6 +11,7 @@ CTRL + ALT + A to toggle Tawilwind Code readability
   - ~~Learn server components~~
   - ~~API fetch testing for proof-of-concept~~
   - ~~Create repo~~
+  - Add TypeScript into project a refactor accordingly
 
 2. Air Data Component
   - ~~Fetch with OpenWeather air pollution API (start with one number)~~
