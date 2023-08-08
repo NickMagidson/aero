@@ -4,15 +4,25 @@ import dynamic from 'next/dynamic'
 
 import AirData from './airData'
 import SearchBar from '@/components/SearchBar'
+import React from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+interface HomeProps {
+  loading: any,
+  ssr: boolean,
+}
 
-  const Map = dynamic(
+type Head = any;
+
+
+
+const Home: React.FC<HomeProps> = () => {
+
+  const Map: any = dynamic(
     () => import('../components/Map'),
     { 
-      loading: () => <p>A map is loading</p>,
+      loading: () => <p>A Map is loading</p>,
       ssr: false // Prevents server-side render
     }
   )
@@ -32,3 +42,5 @@ export default function Home() {
     </>
   )
 }
+
+export default Home

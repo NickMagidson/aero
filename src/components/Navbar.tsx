@@ -1,9 +1,13 @@
 import React, { useState } from "react";
-import Menu from '../../public/menu2.png'
+import Menu from '../../public/menu2.png';
 import Image from "next/image";
 
-export default function Navbar() {
-  const [isMenuOpen, setMenuOpen] = useState(false);
+interface NavbarProps {
+  // Define props here
+}
+
+const Navbar: React.FC<NavbarProps> = () => {
+  const [isMenuOpen, setMenuOpen] = useState<boolean>(false);
 
   const handleMenuToggle = () => {
     setMenuOpen(!isMenuOpen);
@@ -35,3 +39,5 @@ export default function Navbar() {
     </>
   );
 }
+
+export default Navbar;
