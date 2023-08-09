@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import dynamic from 'next/dynamic'
 
-import AirData from './airData'
+import AirData from './airData/index'
 import SearchBar from '@/components/SearchBar'
 import React from 'react'
 
@@ -14,8 +14,6 @@ interface HomeProps {
 }
 
 type Head = any;
-
-
 
 const Home: React.FC<HomeProps> = () => {
 
@@ -31,6 +29,7 @@ const Home: React.FC<HomeProps> = () => {
     <>
       <Head>
         <title>Aero | Air Pollution Tracker</title>
+        <link rel='icon' href='/icons8-air-96.png' sizes='any' />
       </Head>
       <main className={`min-h-screen flex flex-col items-center justify-between p-16 overscroll-none ${inter.className}`}>
         <div id='data-container'  className=" flex flex-col justify-center z-10 h-auto w-72 mt-auto mb-auto md:w-auto 2xl:justify-start 2xl:mr-auto max-w-xs ">

@@ -1,12 +1,23 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import GaugeComponent from 'react-gauge-component'
 
 import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
-export default function AirData() {
-  const [data, setData] = useState('');
+// interface AirDataProps {
+//   location: any,
+//   components: any,
+//   aqi: number,
+// }
+
+
+const AirData: React.FC =  () => {
+  const [data, setData] = useState<{
+    location: string;
+    components: Record<string, number>;
+    aqi: number;
+  } | null>(null);
 
   const API_KEY = '67224de3b5da9b6e57e30c7be68cd834';
 
@@ -14,8 +25,8 @@ export default function AirData() {
   const LATITUDE = 35.6762;
   const LONGITUDE = 139.6503;
 
-  const aqiValues = [null, 100, 70, 50, 30, 10];
-  const gaugeValue = aqiValues[data.aqi] || null;
+  const aqiValues = [0, 100, 70, 50, 30, 10];
+  const gaugeValue = aqiValues[data?.aqi || 0];
 
   
   useEffect(() => {
@@ -93,3 +104,5 @@ export default function AirData() {
   </div>
   );
 }
+
+export default AirData
