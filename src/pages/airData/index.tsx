@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import GaugeComponent from 'react-gauge-component'
+import SearchBar from '@/components/SearchBar';
 
 import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
-
 
 const AirData: React.FC =  () => {
   const [data, setData] = useState<{
@@ -13,14 +13,17 @@ const AirData: React.FC =  () => {
     aqi: number;
   } | null>(null);
 
-  const [lat, setLat] = useState<number>(35.6762);
-  const [lon, setLon] = useState<number>(139.6503);
+  // Tokyo coordinates for reference
+  // LATITUDE = 40.7128
+  // LONGITUDE = 74.0060
+
+  const defaultLatitude = 40.7128;
+  const defaultLongitude = 74.0060;
+
+  const [lat, setLat] = useState<number | undefined>(defaultLatitude);
+  const [lon, setLon] = useState<number | undefined>(defaultLongitude);
 
   const API_KEY = '67224de3b5da9b6e57e30c7be68cd834';
-
-  // Tokyo coordinates for reference
-  const LATITUDE = lat;
-  const LONGITUDE = lon;
 
   const aqiValues = [0, 100, 70, 50, 30, 10];
   const gaugeValue = aqiValues[data?.aqi || 0];
@@ -30,7 +33,7 @@ const AirData: React.FC =  () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://api.openweathermap.org/data/2.5/air_pollution?lat=${LATITUDE}&lon=${LONGITUDE}&appid=${API_KEY}`
+          `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${API_KEY}`
         );
         const { data } = response;
         setData({
@@ -45,10 +48,12 @@ const AirData: React.FC =  () => {
       }
     };
     fetchData();
-  }, []);
+  }, [lat, lon]);
 
 
   return (
+    <>
+    <SearchBar setLat={setLat} setLon={setLon} />
     <div 
       id='air-data-container' 
       className="z-10 p-5 h-auto w-auto
@@ -63,15 +68,17 @@ const AirData: React.FC =  () => {
           padding: 0.02,
           subArcs:
             [
-              { limit: 20 },
+              { limit: 20, showMark: false },
               { limit: 40 },
               { limit: 60 },
               { limit: 80 },
-              { limit: 100 }
+              { limit: 100, showMark: false }
             ]
           }}
+          
           pointer={{type: "arrow", animationDelay: 0 }}
           value={gaugeValue}
+          
         />
         <h1 id='aqi' className={`text-4xl text-center p-5 ${inter.className}`}>
           {data.aqi === 1 && 'Good'}
@@ -99,6 +106,7 @@ const AirData: React.FC =  () => {
       <p>Loading...</p>
     )}
   </div>
+  </>
   );
 }
 
