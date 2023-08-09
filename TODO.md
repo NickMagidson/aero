@@ -11,7 +11,7 @@ CTRL + ALT + A to toggle Tawilwind Code readability
   - ~~Learn server components~~
   - ~~API fetch testing for proof-of-concept~~
   - ~~Create repo~~
-  - Add TypeScript into project a refactor accordingly
+  - ~~Add TypeScript into project and refactor accordingly~~
 
 2. Air Data Component
   - ~~Fetch with OpenWeather air pollution API (start with one number)~~
@@ -23,22 +23,25 @@ CTRL + ALT + A to toggle Tawilwind Code readability
   - ~~Credit Karma style UI (react-gauge-chart)~~
   - ~~value={} to be linked/referenced with whatever the index value will be.~~
   - Design the component
+    - SpaceX font?
+    - Container div for co, no, etc. Background color?
   - Location input functionality (coord input?, then location with geocoding API)
-    - Add the search bar input
-    - Implement the geocoding API
-    - Make the search function with the AirData component
-    - Then link / reference to the map. So on search, set map change and dWata change
+    - ~~Add the search bar input~~
+    - ~~Implement the geocoding API~~
+    - ~~Make the search function with the AirData component~~
+    - Set a default location / settings
+    - Add auto complete for the search bar (Google places API)
+    - Get rid of ugly small text in gauge component
 
 3. Map Integration
   - ~~Implement Leaflet to be a full screen map~~
+  - Translate full map to English?
   - Link the coorodinates with the API data
   - Adjust map controls and functionality
 
 
 
-
 4. Data Visualization
 Other notes:
-  - Search functionality will come when map is in the picture
   - Mobile: menu on left and search in middle. Ease in from bottom for info. App inspired
   - Load spinner!

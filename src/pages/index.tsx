@@ -1,18 +1,24 @@
+import React from 'react'
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import dynamic from 'next/dynamic'
+import AirData from './airData/index'
 
-import AirData from './airData'
-import SearchBar from '@/components/SearchBar'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+interface HomeProps {
+  loading: any,
+  ssr: boolean,
+}
 
-  const Map = dynamic(
+type Head = any;
+
+const Home: React.FC<HomeProps> = () => {
+  const Map: any = dynamic(
     () => import('../components/Map'),
     { 
-      loading: () => <p>A map is loading</p>,
+      loading: () => <p>A Map is loading</p>,
       ssr: false // Prevents server-side render
     }
   )
@@ -21,10 +27,10 @@ export default function Home() {
     <>
       <Head>
         <title>Aero | Air Pollution Tracker</title>
+        <link rel='icon' href='/icons8-air-96.png' sizes='any' />
       </Head>
       <main className={`min-h-screen flex flex-col items-center justify-between p-16 overscroll-none ${inter.className}`}>
         <div id='data-container'  className=" flex flex-col justify-center z-10 h-auto w-72 mt-auto mb-auto md:w-auto 2xl:justify-start 2xl:mr-auto max-w-xs ">
-          <SearchBar />
           <AirData />          
         </div>
         <Map />
@@ -32,3 +38,5 @@ export default function Home() {
     </>
   )
 }
+
+export default Home
