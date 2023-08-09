@@ -5,12 +5,6 @@ import GaugeComponent from 'react-gauge-component'
 import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
-// interface AirDataProps {
-//   location: any,
-//   components: any,
-//   aqi: number,
-// }
-
 
 const AirData: React.FC =  () => {
   const [data, setData] = useState<{
@@ -19,11 +13,14 @@ const AirData: React.FC =  () => {
     aqi: number;
   } | null>(null);
 
+  const [lat, setLat] = useState<number>(35.6762);
+  const [lon, setLon] = useState<number>(139.6503);
+
   const API_KEY = '67224de3b5da9b6e57e30c7be68cd834';
 
   // Tokyo coordinates for reference
-  const LATITUDE = 35.6762;
-  const LONGITUDE = 139.6503;
+  const LATITUDE = lat;
+  const LONGITUDE = lon;
 
   const aqiValues = [0, 100, 70, 50, 30, 10];
   const gaugeValue = aqiValues[data?.aqi || 0];
