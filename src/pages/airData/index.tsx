@@ -13,7 +13,7 @@ const AirData: React.FC =  () => {
     aqi: number;
   } | null>(null);
 
-  // Tokyo coordinates for reference
+  // New York coordinates for reference
   // LATITUDE = 40.7128
   // LONGITUDE = 74.0060
 
