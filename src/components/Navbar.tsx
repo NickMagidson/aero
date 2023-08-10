@@ -16,7 +16,7 @@ const Navbar: React.FC<NavbarProps> = () => {
 
   return (
     <>
-      <nav className="bg-white border-gray-200 dark:bg-gray-900 absolute w-full z-20">
+      <nav className="bg-white border-gray-200 dark:bg-gray-900 absolute w-full z-20 shadow-[rgba(0,_0,_0,_0.4)_0px_30px_40px]">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 z-10 relative">
           <a href="https://flowbite.com/" className="flex items-center">
               <img src="https://img.icons8.com/color/48/000000/air-element.png"  className="h-10 mr-3 w-10" alt="Flowbite Logo" />

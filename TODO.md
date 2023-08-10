@@ -25,6 +25,7 @@ CTRL + ALT + A to toggle Tawilwind Code readability
   - Design the component
     - SpaceX font?
     - Container div for co, no, etc. Background color?
+    - Drop shadows for things
   - Location input functionality (coord input?, then location with geocoding API)
     - ~~Add the search bar input~~
     - ~~Implement the geocoding API~~
