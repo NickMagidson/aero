@@ -43,9 +43,13 @@ CTRL + ALT + A to toggle Tawilwind Code readability
   - Allow drag and droppable pin to change Air data
   - Make pan animation smoother? 
 
+4. Deploy
+  - Create small top right blurb with about the app. maybe mini updates section?
+  - Deploy on Netlify
+  - Finish documentation on website
 
 
-4. Data Visualization
+5. Data Visualization
 Other notes:
   - Mobile: menu on left and search in middle. Ease in from bottom for info. App inspired
   - If there are limitations, make a dropdown on the Nav (or just a div) that explains how to use the app and its limitations.

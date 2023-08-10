@@ -9,9 +9,9 @@ interface MapProps {
 
 const defaultCenter: [number, number] = [40.7128, -74.0060]; // New York City
 
-const Map: React.FC<MapProps> = ({ center = defaultCenter, attribution }) => {
-  
-  const mapRef = useRef<any>(null); // Ref to the MapContainer
+const Map: React.FC<MapProps> = ({ center = defaultCenter }) => {
+
+  const mapRef = useRef<any>(null); // Reference to the MapContainer
   useEffect(() => {
     if (mapRef.current && center) {
       // Animate the map to the new coordinates with a smooth transition
