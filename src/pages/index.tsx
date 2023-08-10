@@ -1,7 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
-import dynamic from 'next/dynamic'
 import AirData from './airData/index'
 
 
@@ -10,19 +9,11 @@ const inter = Inter({ subsets: ['latin'] })
 interface HomeProps {
   loading: any,
   ssr: boolean,
+  Head: any
 }
 
-type Head = any;
 
 const Home: React.FC<HomeProps> = () => {
-  const Map: any = dynamic(
-    () => import('../components/Map'),
-    { 
-      loading: () => <p>A Map is loading</p>,
-      ssr: false // Prevents server-side render
-    }
-  )
-
   return (
     <>
       <Head>
@@ -33,7 +24,6 @@ const Home: React.FC<HomeProps> = () => {
         <div id='data-container'  className=" flex flex-col justify-center z-10 h-auto w-72 mt-auto mb-auto md:w-auto 2xl:justify-start 2xl:mr-auto max-w-xs ">
           <AirData />          
         </div>
-        <Map />
       </main>
     </>
   )

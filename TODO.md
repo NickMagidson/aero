@@ -22,17 +22,19 @@ CTRL + ALT + A to toggle Tawilwind Code readability
   - ~~Conditionals to render a range of 'poor' to 'good. And final number~~
   - ~~Credit Karma style UI (react-gauge-chart)~~
   - ~~value={} to be linked/referenced with whatever the index value will be.~~
-  - Design the component
-    - SpaceX font?
-    - Container div for co, no, etc. Background color?
-    - Drop shadows for things
+  - ~~Design the component~~
+    - ~~Container div for co, no, etc. Background color?~~
+    - ~~Drop shadows for things~~
   - Location input functionality (coord input?, then location with geocoding API)
     - ~~Add the search bar input~~
     - ~~Implement the geocoding API~~
     - ~~Make the search function with the AirData component~~
+    - ~~Get rid of ugly small text in gauge component~~
     - Set a default location / settings
     - Add auto complete for the search bar (Google places API)
-    - Get rid of ugly small text in gauge component
+  - Break gauge into its own component?
+  - TypeAnimation component for re renders?
+  - Change font?
 
 3. Map Integration
   - ~~Implement Leaflet to be a full screen map~~

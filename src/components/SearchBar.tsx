@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const SearchBar: React.FC<{ 
   setLat: React.Dispatch<React.SetStateAction<number | undefined>>, 
-  setLon: React.Dispatch<React.SetStateAction<number | undefined>> }> = ({ setLat, setLon }) => {
+  setLon: React.Dispatch<React.SetStateAction<number | undefined>>,  }> = ({ setLat, setLon,  }) => {
 
   const [searchQuery, setSearchQuery] = useState('');
 

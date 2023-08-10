@@ -2,11 +2,22 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import GaugeComponent from 'react-gauge-component'
 import SearchBar from '@/components/SearchBar';
+import dynamic from 'next/dynamic';
 
 import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
+// Dynamic import for Map component
+const Map: any = dynamic(
+  () => import('../../components/Map'),
+  { 
+    loading: () => <p>A Map is loading</p>,
+    ssr: false // Prevents server-side render
+  }
+)
+
 const AirData: React.FC =  () => {
+
   const [data, setData] = useState<{
     location: string;
     components: Record<string, number>;
@@ -14,21 +25,18 @@ const AirData: React.FC =  () => {
   } | null>(null);
 
   // New York coordinates for reference
-  // LATITUDE = 40.7128
-  // LONGITUDE = 74.0060
-
   const defaultLatitude = 40.7128;
-  const defaultLongitude = 74.0060;
+  const defaultLongitude = -74.0060;
 
   const [lat, setLat] = useState<number | undefined>(defaultLatitude);
   const [lon, setLon] = useState<number | undefined>(defaultLongitude);
 
-  const API_KEY = '67224de3b5da9b6e57e30c7be68cd834';
-
   const aqiValues = [0, 100, 70, 50, 30, 10];
   const gaugeValue = aqiValues[data?.aqi || 0];
 
-  
+  const API_KEY = '67224de3b5da9b6e57e30c7be68cd834';
+
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -50,17 +58,17 @@ const AirData: React.FC =  () => {
     fetchData();
   }, [lat, lon]);
 
-
+  
   return (
     <>
-    <SearchBar setLat={setLat} setLon={setLon} />
+    <SearchBar setLat={setLat} setLon={setLon}  />
     <div 
       id='air-data-container' 
       className="z-10 p-5 h-auto w-auto
-          bg-gray-500 rounded-2xl bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50 border border-gray-100">
+         bg-slate-950 rounded-2xl bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50 border border-gray-100">
       {data ? (
       <>
-      <div id='gauge-container'>
+      <div id='gauge-container' className="bg-slate-200s border rounded-2xl bg-black bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-20 border-gray-100">
         <GaugeComponent
           type="semicircle"
           arc={{
@@ -75,12 +83,17 @@ const AirData: React.FC =  () => {
               { limit: 100, showMark: false }
             ]
           }}
-          
-          pointer={{type: "arrow", animationDelay: 0 }}
+          labels={{
+            markLabel: {
+              hideMinMax: true,
+              type: "outer"
+            }
+          }}
+          pointer={{type: "arrow", animationDelay: 0, color:"white" }}
           value={gaugeValue}
           
         />
-        <h1 id='aqi' className={`text-4xl text-center p-5 ${inter.className}`}>
+        <h1 id='aqi' className={`text-5xl text-center p-5 font-semibold text-white ${inter.className}`}>
           {data.aqi === 1 && 'Good'}
           {data.aqi === 2 && 'Fair'}
           {data.aqi === 3 && 'Moderate'}
@@ -94,18 +107,25 @@ const AirData: React.FC =  () => {
         <hr className="my-8 h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50" />
         {/* <p className='text-center'>Location: <br /> {data.location}</p> */}
        
-        <div id='data-grid' className={`text-lg text-center p-5 flex flex-col ${inter.className} grid grid-cols-3 grid-rows-3 gap-3`}> 
+        <div id='data-grid' className={`text-lg text-center p-5 flex flex-col ${inter.className} grid grid-cols-3 grid-rows-3 gap-3 rounded-2xl bg-black bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-20 border border-gray-100 `}> 
           {Object.entries(data.components).map(([key, value]) => (
-            <h3 className='text-left text-base' key={key}>{value} <br/> <span className="text-base font-light">{key}:</span></h3>
+            <div key={key} className='flex flex-col justify-center items-start border-0 rounded-md p-1 bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-none bg-opacity-20 border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.12)]'>
+              <h3 className='text-left font-normal text-md text-white' key={key}>{value} <br/> 
+              <span className="text-sm font-light text-gray-200">{key}:</span></h3>
+            </div>
           ))}
-          <h3 className='text-left text-base'>{data.aqi} <br/> <span className="text-base font-light">aqi: </span></h3>
+            <div  className='flex flex-col justify-center items-start border-0 rounded-md p-1 bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-none bg-opacity-20 border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.12)]'>
+              <h3 className='text-left text-base text-white'>{data.aqi} <br/> <span className="text-base font-light">aqi: </span></h3>
+            </div>
         </div>
       </>
     ) : (
       // Use React load spinner from previous project
       <p>Loading...</p>
     )}
+    
   </div>
+    <Map center={[lat, lon]} />
   </>
   );
 }
