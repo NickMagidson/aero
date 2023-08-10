@@ -25,26 +25,28 @@ CTRL + ALT + A to toggle Tawilwind Code readability
   - ~~Design the component~~
     - ~~Container div for co, no, etc. Background color?~~
     - ~~Drop shadows for things~~
-  - Location input functionality (coord input?, then location with geocoding API)
+  - ~~Location input functionality (coord input?, then location with geocoding API)~~
     - ~~Add the search bar input~~
     - ~~Implement the geocoding API~~
     - ~~Make the search function with the AirData component~~
     - ~~Get rid of ugly small text in gauge component~~
-    - Set a default location / settings
-    - Add auto complete for the search bar (Google places API)
+    - ~~Set a default location / settings~~
+  - Add auto complete for the search bar (Google places API)
   - Break gauge into its own component?
   - TypeAnimation component for re renders?
   - Change font?
 
 3. Map Integration
   - ~~Implement Leaflet to be a full screen map~~
-  - Translate full map to English?
-  - Link the coorodinates with the API data
-  - Adjust map controls and functionality
+  - ~~Link the coorodinates with the API data~~
+  - ~~Adjust map controls and functionality~~
+  - Allow drag and droppable pin to change Air data
+  - Make pan animation smoother? 
 
 
 
 4. Data Visualization
 Other notes:
   - Mobile: menu on left and search in middle. Ease in from bottom for info. App inspired
+  - If there are limitations, make a dropdown on the Nav (or just a div) that explains how to use the app and its limitations.
   - Load spinner!
