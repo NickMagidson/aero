@@ -32,9 +32,10 @@ CTRL + ALT + A to toggle Tawilwind Code readability
     - ~~Get rid of ugly small text in gauge component~~
     - ~~Set a default location / settings~~
   - ~~React Countup component for re renders~~
+  - ~~Break gauge into its own component~~
+  - Add and style location coordinates in the AirData component
+  - Break data-grid into it's own component?
   - Add auto complete for the search bar (Google places API)
-  - Break gauge into its own component?
-  - Change font?
 
 3. Map Integration
   - ~~Implement Leaflet to be a full screen map~~
@@ -45,9 +46,9 @@ CTRL + ALT + A to toggle Tawilwind Code readability
 
 
 4. Deploy
+  - ~~Finish documentation on website~~
   - Create small top right blurb with about the app. maybe mini updates section?
   - Deploy on Netlify
-  - Finish documentation on website
 
 
 5. Data Visualization
