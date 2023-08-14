@@ -16,7 +16,7 @@ const Map: React.FC<MapProps> = ({ center = defaultCenter }) => {
     if (mapRef.current && center) {
       // Animate the map to the new coordinates with a smooth transition
       mapRef.current.flyTo(center, 11, {
-        duration: 2, // Animation duration in seconds
+        duration: 6, // Animation duration in seconds
       });
     }
   }, [center]);

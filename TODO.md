@@ -33,15 +33,16 @@ CTRL + ALT + A to toggle Tawilwind Code readability
     - ~~Set a default location / settings~~
   - Add auto complete for the search bar (Google places API)
   - Break gauge into its own component?
-  - TypeAnimation component for re renders?
+  - TypeAnimation or React Countup component for re renders?
   - Change font?
 
 3. Map Integration
   - ~~Implement Leaflet to be a full screen map~~
   - ~~Link the coorodinates with the API data~~
   - ~~Adjust map controls and functionality~~
+  - ~~Make pan animation smoother~~ 
   - Allow drag and droppable pin to change Air data
-  - Make pan animation smoother? 
+
 
 4. Deploy
   - Create small top right blurb with about the app. maybe mini updates section?
