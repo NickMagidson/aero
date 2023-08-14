@@ -31,9 +31,9 @@ CTRL + ALT + A to toggle Tawilwind Code readability
     - ~~Make the search function with the AirData component~~
     - ~~Get rid of ugly small text in gauge component~~
     - ~~Set a default location / settings~~
+  - ~~React Countup component for re renders~~
   - Add auto complete for the search bar (Google places API)
   - Break gauge into its own component?
-  - TypeAnimation or React Countup component for re renders?
   - Change font?
 
 3. Map Integration

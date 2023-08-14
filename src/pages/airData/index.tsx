@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import GaugeComponent from 'react-gauge-component'
+import GaugeComponent from 'react-gauge-component';
+import CountUp from 'react-countup';
 import SearchBar from '@/components/SearchBar';
 import dynamic from 'next/dynamic';
 
@@ -64,11 +65,11 @@ const AirData: React.FC =  () => {
     <SearchBar setLat={setLat} setLon={setLon}  />
     <div 
       id='air-data-container' 
-      className="z-10 p-5 h-auto w-auto
+      className="z-10 p-5 h-auto w-100
          bg-slate-950 rounded-2xl bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50 border border-gray-100">
       {data ? (
       <>
-      <div id='gauge-container' className="bg-slate-200s border rounded-2xl bg-black bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-20 border-gray-100">
+      <div id='gauge-container' className="h-100 flex flex-col justify-center bg-slate-200s border rounded-2xl bg-black bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-20 border-gray-100">
         <GaugeComponent
           type="semicircle"
           arc={{
@@ -93,7 +94,7 @@ const AirData: React.FC =  () => {
           value={gaugeValue}
           
         />
-        <h1 id='aqi' className={`text-5xl text-center p-5 font-semibold text-white ${inter.className}`}>
+        <h1 id='aqi' className={`flex justify-center text-5xl text-center p-5 font-semibold text-white ${inter.className}`}>
           {data.aqi === 1 && 'Good'}
           {data.aqi === 2 && 'Fair'}
           {data.aqi === 3 && 'Moderate'}
@@ -109,13 +110,21 @@ const AirData: React.FC =  () => {
        
         <div id='data-grid' className={`text-lg text-center p-5 flex flex-col ${inter.className} grid grid-cols-3 grid-rows-3 gap-3 rounded-2xl bg-black bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-20 border border-gray-100 `}> 
           {Object.entries(data.components).map(([key, value]) => (
-            <div key={key} className='flex flex-col justify-center items-start border-0 rounded-md p-1 bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-none bg-opacity-20 border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.12)]'>
-              <h3 className='text-left font-normal text-md text-white' key={key}>{value} <br/> 
-              <span className="text-sm font-light text-gray-200">{key}:</span></h3>
+            <div key={key} className='flex flex-col justify-center items-start w-100 border-0 rounded-md p-1 bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-none bg-opacity-20 border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.12)]'>
+              <h3 className='text-left font-medium text-sm text-white' key={key}>
+                <CountUp end={value} duration={6} decimals={2} decimal="." />
+                {/* {value} */}
+                <br/> 
+                <span className="text-sm font-light text-gray-200">{key}:</span>
+              </h3>
             </div>
           ))}
-            <div  className='flex flex-col justify-center items-start border-0 rounded-md p-1 bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-none bg-opacity-20 border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.12)]'>
-              <h3 className='text-left text-base text-white'>{data.aqi} <br/> <span className="text-base font-light">aqi: </span></h3>
+            <div  className='flex flex-col justify-center items-start w-100 border-0 rounded-md p-1 bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-none bg-opacity-20 border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.12)]'>
+              <h3 className='text-left font-medium text-sm text-white'>
+                <CountUp end={data.aqi} duration={6} />
+                <br/> 
+                <span className="text-sm font-light text-gray-200">aqi:</span>
+              </h3>
             </div>
         </div>
       </>
