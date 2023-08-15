@@ -3,7 +3,6 @@ import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import AirData from './airData/index'
 
-
 const inter = Inter({ subsets: ['latin'] })
 
 interface HomeProps {
@@ -12,12 +11,11 @@ interface HomeProps {
   Head: any
 }
 
-
 const Home: React.FC<HomeProps> = () => {
   return (
     <>
       <Head>
-        <title>Aero | Air Pollution Tracker</title>
+        <title>Aero | Air Pollution Dashboard</title>
         <link rel='icon' href='/air logo.png' sizes='any' />
       </Head>
       <main className={`min-h-screen flex flex-col items-center justify-between p-16 overscroll-none ${inter.className}`}>
