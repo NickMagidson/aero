@@ -48,7 +48,7 @@ CTRL + ALT + A to toggle Tawilwind Code readability
 4. Deploy
   - ~~Finish documentation on website~~
   - ~~Create small top right blurb with about the app. maybe mini updates section~~
-  - Deploy on Netlify
+  - ~~Deploy on Netlify~~
 
 
 5. Data Visualization

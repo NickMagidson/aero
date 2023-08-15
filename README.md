@@ -5,7 +5,7 @@
 Air pollution dashboard web application built with the T3 stack. Wielding OpenWeather API data, geocoding, and search / map functionality.
 <br />
 
-<!-- [Live Preview](http://electron.atom.io/) -->
+[Live Preview](https://aero-dashboard.netlify.app/)
 
 ## Key Features
 
