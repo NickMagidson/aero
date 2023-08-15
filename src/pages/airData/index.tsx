@@ -74,9 +74,14 @@ const AirData: React.FC =  () => {
             {data ? (
             <>
               <GaugeDisplay gaugeValue={gaugeValue} dataAqi={data.aqi} data={data} aqi={undefined} />
-              <hr className="my-8 h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50" />
-              {/* Coordiantes with Lat and Lons here! */}
-              {/* <p className='text-center'>Coordinates: <br /> {lat}, {lon}</p> */}
+              <hr className="mb-2 mt-8 h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50" />
+
+              <p className='font-borl text-left text-white p-1 mb-2'>
+                Coordinates: 
+                <br />
+                <p className='font-light text-white'>Latitude: <span className="font-extralight"><CountUp end={lat} duration={2} decimals={7} decimal="." />&deg;</span></p>
+                <p className='font-light text-white'>Longitude: <span className="font-extralight"><CountUp end={lon} duration={2} decimals={7} decimal="." />&deg;</span></p>
+              </p>
             
               <div id='data-grid' className={`text-lg text-center p-5 flex flex-col ${inter.className} grid grid-cols-3 grid-rows-3 gap-3 rounded-2xl bg-black bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-20 border border-gray-100 `}> 
                 {Object.entries(data.components).map(([key, value]) => (
