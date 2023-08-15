@@ -43,7 +43,7 @@ const AirData: React.FC =  () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${API_KEY}`
+          `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${API_KEY}`
         );
         const { data } = response;
         setData({
@@ -63,7 +63,7 @@ const AirData: React.FC =  () => {
   return (
     <>
       <SearchBar setLat={setLat} setLon={setLon}  />
-        <main id='air-data-container' className="z-10 p-5 h-auto w-100 bg-slate-950 rounded-2xl bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50 border border-gray-100 shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px]"> 
+        <main id='air-data-container' className="z-10 p-5 h-auto w-100 max-w-2xl bg-slate-950 rounded-2xl bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50 border border-gray-100 shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px]"> 
             {data ? (
             <>
               <GaugeDisplay gaugeValue={gaugeValue} dataAqi={data.aqi} data={data} aqi={undefined} />
