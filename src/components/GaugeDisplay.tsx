@@ -15,7 +15,7 @@ const GaugeDisplay: React.FC<GaugeProps> = ({ gaugeValue, data, dataAqi }) => {
   return (
     <>
     <div id='gauge-container' className="h-100 flex flex-col justify-center bg-slate-200s border rounded-2xl bg-black bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-20 border-gray-100">
-    <GaugeComponent
+    {/* <GaugeComponent
       type="semicircle"
       arc={{
       colorArray: ['#FF2121', '#00FF15'],
@@ -37,7 +37,7 @@ const GaugeDisplay: React.FC<GaugeProps> = ({ gaugeValue, data, dataAqi }) => {
       }}
       pointer={{type: "arrow", animationDelay: 0, color:"white" }}
       value={gaugeValue}
-    />
+    /> */}
       <h1 id='aqi' className={`flex justify-center text-5xl text-center p-5 font-semibold text-white ${inter.className}`}>
       {data.aqi === 1 && 'Good'}
       {data.aqi === 2 && 'Fair'}
