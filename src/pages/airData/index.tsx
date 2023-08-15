@@ -7,6 +7,7 @@ import SearchBar from '@/components/SearchBar';
 import dynamic from 'next/dynamic';
 
 import { Inter } from 'next/font/google'
+import CoordinatesDisplay from '@/components/CoorodinatesDisplay';
 const inter = Inter({ subsets: ['latin'] })
 
 // Dynamic import for Map component
@@ -67,12 +68,7 @@ const AirData: React.FC =  () => {
             <>
               <GaugeDisplay gaugeValue={gaugeValue} dataAqi={data.aqi} data={data} aqi={undefined} />
               <hr className="mb-2 mt-8 h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50" />
-              <div className='font-borl text-left text-white p-1 mb-2'>
-                Coordinates: 
-                <br />
-                <p className='font-light text-white'>Latitude: <span className="font-extralight"><CountUp end={lat} duration={2} decimals={7} decimal="." />&deg;</span></p>
-                <p className='font-light text-white'>Longitude: <span className="font-extralight"><CountUp end={lon} duration={2} decimals={7} decimal="." />&deg;</span></p>
-              </div>
+              <CoordinatesDisplay lat={lat} lon={lon} />
               <AirDataGrid  data={data} end={data}/>
             </>
           ) : (
