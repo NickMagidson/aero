@@ -11,8 +11,16 @@ const CoordinatesDisplay: React.FC<CoordinatesProps> = ({ lat, lon }) => {
       <div className='font-borl text-left text-white p-1 mb-2'>
         Coordinates: 
         <br />
-        <p className='font-light text-white'>Latitude: <span className="font-extralight"><CountUp end={lat} duration={2} decimals={7} decimal="." />&deg;</span></p>
-        <p className='font-light text-white'>Longitude: <span className="font-extralight"><CountUp end={lon} duration={2} decimals={7} decimal="." />&deg;</span></p>
+        {lat !== undefined && (
+          <p className='font-light text-white'>
+            Latitude: <span className='font-extralight'><CountUp end={lat} duration={2} decimals={7} decimal="." />&deg;</span>
+          </p>
+        )}
+        {lon !== undefined && (
+          <p className='font-light text-white'>
+            Longitude: <span className="font-extralight"><CountUp end={lon} duration={2} decimals={7} decimal="." />&deg;</span>
+          </p>
+        )}
       </div>
     </>
   )
