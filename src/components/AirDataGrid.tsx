@@ -9,7 +9,7 @@ interface AirDataGridProps {
   value: number;
 }
 
-const AirDataGrid: React.FC<AirDataGridProps> = ({ data }) => {
+const AirDataGrid: React.FC<AirDataGridProps> = ({ data  }) => {
   return (
     <div id='data-grid' className={`text-lg text-center p-5 flex flex-col ${inter.className} grid grid-cols-3 grid-rows-3 gap-3 rounded-2xl bg-black bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-20 border border-gray-100 `}> 
     {Object.entries(data.components).map(([key, value]) => (
