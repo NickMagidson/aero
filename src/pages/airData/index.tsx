@@ -69,7 +69,7 @@ const AirData: React.FC =  () => {
               <GaugeDisplay gaugeValue={gaugeValue} dataAqi={data.aqi} data={data} aqi={undefined} />
               <hr className="mb-2 mt-8 h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50" />
               <CoordinatesDisplay lat={lat} lon={lon} />
-              <AirDataGrid  data={data} end={data}/>
+              <AirDataGrid  data={data} end={data} value={0}/>
             </>
           ) : (
             // Use React load spinner from previous project

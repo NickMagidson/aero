@@ -6,6 +6,7 @@ const inter = Inter({ subsets: ['latin'] })
 interface AirDataGridProps {
   data: any;
   end: any | undefined;
+  value: number;
 }
 
 const AirDataGrid: React.FC<AirDataGridProps> = ({ data }) => {
