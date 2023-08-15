@@ -5,7 +5,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 interface AirDataGridProps {
   data: any;
-  end: any;
+  end: any | undefined;
 }
 
 const AirDataGrid: React.FC<AirDataGridProps> = ({ data }) => {
@@ -15,7 +15,6 @@ const AirDataGrid: React.FC<AirDataGridProps> = ({ data }) => {
       <div key={key} className='flex flex-col justify-center items-start w-100 border-0 rounded-md p-1 bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-none bg-opacity-20 border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.12)]'>
         <h3 className='text-left font-medium text-sm text-white' key={key}>
           <CountUp end={value} duration={6} decimals={2} decimal="." />
-          {/* {value} */}
           <br/> 
           <span className="text-sm font-light text-gray-200">{key}:</span>
         </h3>
