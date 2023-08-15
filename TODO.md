@@ -33,8 +33,8 @@ CTRL + ALT + A to toggle Tawilwind Code readability
     - ~~Set a default location / settings~~
   - ~~React Countup component for re renders~~
   - ~~Break gauge into its own component~~
-  - Add and style location coordinates in the AirData component
-  - Break data-grid into it's own component?
+  - ~~Add and style location coordinates in the AirData component~~
+  - ~~Break data-grid into it's own component~~
   - Add auto complete for the search bar (Google places API)
 
 3. Map Integration
@@ -53,6 +53,5 @@ CTRL + ALT + A to toggle Tawilwind Code readability
 
 5. Data Visualization
 Other notes:
-  - Mobile: menu on left and search in middle. Ease in from bottom for info. App inspired
-  - If there are limitations, make a dropdown on the Nav (or just a div) that explains how to use the app and its limitations.
+  - Mobile: menu on left and search in middle. Ease in from bottom for info. App inspired.
   - Load spinner!

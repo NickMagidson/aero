@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import GaugeComponent from 'react-gauge-component';
 import GaugeDisplay from '@/components/GaugeDisplay';
+import AirDataGrid from '@/components/AirDataGrid';
 import CountUp from 'react-countup';
 import SearchBar from '@/components/SearchBar';
 import dynamic from 'next/dynamic';
@@ -38,7 +38,6 @@ const AirData: React.FC =  () => {
 
   const API_KEY = '67224de3b5da9b6e57e30c7be68cd834';
 
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -60,50 +59,22 @@ const AirData: React.FC =  () => {
     fetchData();
   }, [lat, lon]);
 
-  
   return (
-      <>
+    <>
       <SearchBar setLat={setLat} setLon={setLon}  />
-        <main 
-          id='air-data-container' 
-          className="z-10 p-5 h-auto w-100
-            bg-slate-950 rounded-2xl bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50 border border-gray-100
-            shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px]
-            ">
-              
+        <main id='air-data-container' className="z-10 p-5 h-auto w-100 bg-slate-950 rounded-2xl bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50 border border-gray-100 shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px]"> 
             {data ? (
             <>
               <GaugeDisplay gaugeValue={gaugeValue} dataAqi={data.aqi} data={data} aqi={undefined} />
               <hr className="mb-2 mt-8 h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50" />
-
-              <p className='font-borl text-left text-white p-1 mb-2'>
+              <div className='font-borl text-left text-white p-1 mb-2'>
                 Coordinates: 
                 <br />
                 <p className='font-light text-white'>Latitude: <span className="font-extralight"><CountUp end={lat} duration={2} decimals={7} decimal="." />&deg;</span></p>
                 <p className='font-light text-white'>Longitude: <span className="font-extralight"><CountUp end={lon} duration={2} decimals={7} decimal="." />&deg;</span></p>
-              </p>
-            
-              <div id='data-grid' className={`text-lg text-center p-5 flex flex-col ${inter.className} grid grid-cols-3 grid-rows-3 gap-3 rounded-2xl bg-black bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-20 border border-gray-100 `}> 
-                {Object.entries(data.components).map(([key, value]) => (
-                  <div key={key} className='flex flex-col justify-center items-start w-100 border-0 rounded-md p-1 bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-none bg-opacity-20 border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.12)]'>
-                    <h3 className='text-left font-medium text-sm text-white' key={key}>
-                      <CountUp end={value} duration={6} decimals={2} decimal="." />
-                      {/* {value} */}
-                      <br/> 
-                      <span className="text-sm font-light text-gray-200">{key}:</span>
-                    </h3>
-                  </div>
-                ))}
-                  <div  className='flex flex-col justify-center items-start w-100 border-0 rounded-md p-1 bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-none bg-opacity-20 border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.12)]'>
-                    <h3 className='text-left font-medium text-sm text-white'>
-                      <CountUp end={data.aqi} duration={6} />
-                      <br/> 
-                      <span className="text-sm font-light text-gray-200">aqi:</span>
-                    </h3>
-                  </div>
               </div>
+              <AirDataGrid  data={data} end={data}/>
             </>
-
           ) : (
             // Use React load spinner from previous project
             <p>Loading...</p>
@@ -114,4 +85,4 @@ const AirData: React.FC =  () => {
   );
 }
 
-export default AirData
+export default AirData;
