@@ -3,11 +3,11 @@ import axios from 'axios';
 import GaugeDisplay from '@/components/GaugeDisplay';
 import AirDataGrid from '@/components/AirDataGrid';
 import SearchBar from '@/components/SearchBar';
+import CoordinatesDisplay from '@/components/CoorodinatesDisplay';
+import Loader from '@/components/Loader';
 import dynamic from 'next/dynamic';
-import { Circles } from 'react-loader-spinner'
 
 import { Inter } from 'next/font/google'
-import CoordinatesDisplay from '@/components/CoorodinatesDisplay';
 const inter = Inter({ subsets: ['latin'] })
 
 // Dynamic import for Map component
@@ -71,18 +71,7 @@ const AirData: React.FC =  () => {
               <CoordinatesDisplay lat={lat} lon={lon} />
               <AirDataGrid  data={data} end={data} value={0}/>
             </>
-          ) : (
-            // Use React load spinner from previous project
-            <Circles
-              height="80"
-              width="80"
-              color="#3b7fd9"
-              ariaLabel="circles-loading"
-              wrapperStyle={{}}
-              wrapperClass=""
-              visible={true}
-            />
-          )}
+          ) : ( <Loader /> )}
         </main>
       <Map center={[lat, lon]} />
     </>
