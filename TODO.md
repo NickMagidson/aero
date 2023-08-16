@@ -50,6 +50,7 @@ CTRL + ALT + A to toggle Tawilwind Code readability
 5. Updates
   - ~~Load spinner!~~
   - ~~Color code gradient for text~~
+  - Make Loader its own component
   - Add auto complete for the search bar (Google places API)
   - Allow drag and droppable pin to change Air data
   - Data visualization with d3.js or chart.js

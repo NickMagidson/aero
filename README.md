@@ -26,7 +26,6 @@ This software uses the following tools and open source packages:
 - [Next.js](https://nextjs.org/)
 - [React](https://react.dev/)
 - [OpenWeather API](https://openweathermap.org/)
-- [React Gauge Component](https://github.com/antoniolago/react-gauge-component)
 - [Leaflet](https://leafletjs.com/)
 - [Axios](https://axios-http.com/)
 

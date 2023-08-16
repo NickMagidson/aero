@@ -1,5 +1,4 @@
 import React from "react";
-import GaugeComponent from "react-gauge-component";
 
 import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
