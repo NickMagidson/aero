@@ -48,8 +48,8 @@ CTRL + ALT + A to toggle Tawilwind Code readability
   - ~~Deploy on Netlify~~
 
 5. Updates
-  - Color code gradient for text?
-  - Load spinner!
+  - ~~Load spinner!~~
+  - ~~Color code gradient for text~~
   - Add auto complete for the search bar (Google places API)
   - Allow drag and droppable pin to change Air data
   - Data visualization with d3.js or chart.js

@@ -14,7 +14,7 @@ const inter = Inter({ subsets: ['latin'] })
 const Map: any = dynamic(
   () => import('../../components/Map'),
   { 
-    loading: () => <p className='text-white'>A Map is loading</p>,
+    loading: () => <p className='text-white'>A Map is loading...</p>,
     ssr: false // Prevents server-side render
   }
 )
@@ -76,7 +76,7 @@ const AirData: React.FC =  () => {
             <Circles
               height="80"
               width="80"
-              color="#4fa94d"
+              color="#3b7fd9"
               ariaLabel="circles-loading"
               wrapperStyle={{}}
               wrapperClass=""

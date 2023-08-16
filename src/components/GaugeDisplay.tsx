@@ -38,14 +38,30 @@ const GaugeDisplay: React.FC<GaugeProps> = ({ gaugeValue, data, dataAqi }) => {
       pointer={{type: "arrow", animationDelay: 0, color:"white" }}
       value={gaugeValue}
     /> */}
-      <h1 id='aqi' className={`flex justify-center text-5xl text-center p-5 font-semibold text-white ${inter.className}`}>
-      {data.aqi === 1 && 'Good'}
-      {data.aqi === 2 && 'Fair'}
-      {data.aqi === 3 && 'Moderate'}
-      {data.aqi === 4 && 'Poor'}
-      {data.aqi === 5 && 'Very poor'}
-      {!data.aqi && 'Unable to determine air quality'}
-      </h1>
+      <h2
+        id='aqi'
+        className={`flex justify-center text-5xl text-center p-5 font-semibold ${inter.className} ${
+          data.aqi === 1
+            ? 'bg-gradient-to-r from-green-600 to-green-300 bg-clip-text text-transparent'
+            : data.aqi === 2
+            ? 'bg-gradient-to-r from-sky-600 to-cyan-200 bg-clip-text text-transparent'
+            : data.aqi === 3
+            ? 'bg-gradient-to-r from-orange-600 to-orange-200 bg-clip-text text-transparent'
+            : data.aqi === 4
+            ? 'bg-gradient-to-r from-red-500 via-red-600 to-yellow-500 text-transparent bg-clip-text'
+            : data.aqi === 5
+            ? 'bg-gradient-to-r from-red-600 to-red-200 bg-clip-text text-transparent'
+            : ''
+        }`}
+      >
+        {data.aqi === 1 && 'Good'}
+        {data.aqi === 2 && 'Fair'}
+        {data.aqi === 3 && 'Moderate'}
+        {data.aqi === 4 && 'Poor'}
+        {data.aqi === 5 && 'Very poor'}
+        {!data.aqi && 'Unable to determine air quality'}
+      </h2>
+
     </div>
     </>
   )

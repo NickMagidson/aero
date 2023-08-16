@@ -39,6 +39,7 @@ const AboutModal: React.FC = () => {
                   <p className="my-4 text-slate-200 text-lg leading-relaxed">
                     Welcome to Aero! An air pollution data dashboard.
                     <br />
+                    <br />
                     Seamlessly developed with TypeScript, React, Tailwind CSS, and Next.js, 
                     this app allows you to effortlessly search for cities and view real-time air quality data. 
                     It combines user-friendly design with accurate data fetched from OpenWeather`&apos;s GeoCoding API and Air Pollution API.
