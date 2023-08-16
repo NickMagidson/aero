@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import GaugeDisplay from '@/components/GaugeDisplay';
 import AirDataGrid from '@/components/AirDataGrid';
-import CountUp from 'react-countup';
 import SearchBar from '@/components/SearchBar';
 import dynamic from 'next/dynamic';
+import { Circles } from 'react-loader-spinner'
 
 import { Inter } from 'next/font/google'
 import CoordinatesDisplay from '@/components/CoorodinatesDisplay';
@@ -14,7 +14,7 @@ const inter = Inter({ subsets: ['latin'] })
 const Map: any = dynamic(
   () => import('../../components/Map'),
   { 
-    loading: () => <p>A Map is loading</p>,
+    loading: () => <p className='text-white'>A Map is loading</p>,
     ssr: false // Prevents server-side render
   }
 )
@@ -73,7 +73,15 @@ const AirData: React.FC =  () => {
             </>
           ) : (
             // Use React load spinner from previous project
-            <p>Loading...</p>
+            <Circles
+              height="80"
+              width="80"
+              color="#4fa94d"
+              ariaLabel="circles-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+            />
           )}
         </main>
       <Map center={[lat, lon]} />

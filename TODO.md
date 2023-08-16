@@ -35,23 +35,23 @@ CTRL + ALT + A to toggle Tawilwind Code readability
   - ~~Break gauge into its own component~~
   - ~~Add and style location coordinates in the AirData component~~
   - ~~Break data-grid into it's own component~~
-  - Add auto complete for the search bar (Google places API)
 
 3. Map Integration
   - ~~Implement Leaflet to be a full screen map~~
   - ~~Link the coorodinates with the API data~~
   - ~~Adjust map controls and functionality~~
   - ~~Make pan animation smoother~~ 
-  - Allow drag and droppable pin to change Air data
-
 
 4. Deploy
   - ~~Finish documentation on website~~
   - ~~Create small top right blurb with about the app. maybe mini updates section~~
   - ~~Deploy on Netlify~~
 
-
-5. Data Visualization
-Other notes:
-  - Mobile: menu on left and search in middle. Ease in from bottom for info. App inspired.
+5. Updates
+  - Color code gradient for text?
   - Load spinner!
+  - Add auto complete for the search bar (Google places API)
+  - Allow drag and droppable pin to change Air data
+  - Data visualization with d3.js or chart.js
+
+
