@@ -42,8 +42,8 @@ const AboutModal: React.FC = () => {
                     <br />
                     Seamlessly developed with TypeScript, React, Tailwind CSS, and Next.js, 
                     this app allows you to effortlessly search for cities and view real-time air quality data. 
-                    It combines user-friendly design with accurate data fetched from OpenWeather`&apos;s GeoCoding API and Air Pollution API.
-                    Whether you`&apos;re planning a trip, concerned about your local environment, or just curious, Aero provides valuable insights into the air you breathe.
+                    It combines user-friendly design with accurate data fetched from OpenWeather&apos;s GeoCoding API and Air Pollution API.
+                    Whether you&apos;re planning a trip, concerned about your local environment, or just curious, Aero provides valuable insights into the air you breathe.
                   </p>
                   
                 </div>
