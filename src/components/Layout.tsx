@@ -7,7 +7,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div id="content" className="overflow-hidden 2xl:items-start">
+    <div id="content" className="overflow-hidden overscroll-none 2xl:items-start">
       <Navbar />
       { children }
       <Footer />

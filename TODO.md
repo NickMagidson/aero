@@ -51,7 +51,8 @@ CTRL + ALT + A to toggle Tawilwind Code readability
   - ~~Load spinner!~~
   - ~~Color code gradient for text~~
   - ~~Make Loader its own component~~
-  - Fix mobile responsive bug
+  - Component organization
+  - Fix mobile responsive bug (no scroll)
   - Implement a more mobile design (hide arrow wordmark, smaller search bar?, simplify component to aqi word and searchbar.)
   - Data visualization with d3.js or chart.js
   - Add auto complete for the search bar (Google places API?)
