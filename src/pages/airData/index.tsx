@@ -62,7 +62,10 @@ const AirData: React.FC =  () => {
 
   return (
     <>
-      <SearchBar setLat={setLat} setLon={setLon}  />
+      {/* hidden sm:flex */}
+      <div className='flex w-auto mt-5 mb-1 sm:mb-5 sm:mt-0 '>
+        <SearchBar setLat={setLat} setLon={setLon}  />
+      </div>
         <main id='air-data-container' className="z-10 p-5 h-auto w-100 max-w-2xl bg-slate-950 rounded-2xl bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50 border border-gray-100 shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px]"> 
             {data ? (
             <>

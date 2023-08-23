@@ -11,6 +11,7 @@ interface HomeProps {
   Head: any
 }
 
+
 const Home: React.FC<HomeProps> = () => {
   return (
     <>

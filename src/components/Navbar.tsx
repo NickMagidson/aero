@@ -4,9 +4,11 @@ import Image from "next/image";
 import Logo from '../../public/airLogo.png'
 import AboutModal from "./AboutModal";
 import UpdatesModal from "./UpdatesModal";
+// import SearchBar from "./SearchBar";
+
 
 interface NavbarProps {
-  // Define props here
+  // types
 }
 
 const Navbar: React.FC<NavbarProps> = () => {
@@ -25,6 +27,11 @@ const Navbar: React.FC<NavbarProps> = () => {
               <Image src={Logo} width={30} height={30}  className="h-10 mr-3 w-10" alt="Logo" />
               <span className="hidden md:block self-center text-2xl font-semibold whitespace-nowrap dark:text-white">AERO</span>
           </a>
+
+          {/* <div className="sm:hidden w-auto">
+            <SearchBar setLat={setLat} setLon={setLon}  />
+          </div> */}
+          
           <button onClick={handleMenuToggle} data-collapse-toggle="navbar-default" type="button" className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded={isMenuOpen}>
             <span className="sr-only">Open main menu</span>
             <Image src={Menu} width={30} alt="Burger menu icon"/>
