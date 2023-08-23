@@ -9,6 +9,7 @@ html, body {
   background: -moz-linear-gradient(90deg, hsla(194, 45%, 71%, 1) 0%, hsla(0, 0%, 95%, 1) 100%);
   background: -webkit-linear-gradient(90deg, hsla(194, 45%, 71%, 1) 0%, hsla(0, 0%, 95%, 1) 100%);
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#93C6D6", endColorstr="#F3F3F3", GradientType=1 );
+  overflow-y: hidden;
 }
 
 .content {
