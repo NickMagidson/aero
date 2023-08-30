@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import GaugeDisplay from '@/components/GaugeDisplay';
-import AirDataGrid from '@/components/AirDataGrid';
+import GaugeDisplay from '../../components/AirData/GaugeDisplay';
+import AirDataGrid from '@/components/AirData/AirDataGrid';
 import SearchBar from '@/components/SearchBar';
-import CoordinatesDisplay from '@/components/CoorodinatesDisplay';
+import CoordinatesDisplay from '../../components/AirData/CoorodinatesDisplay';
 import Loader from '@/components/Loader';
 import dynamic from 'next/dynamic';
 

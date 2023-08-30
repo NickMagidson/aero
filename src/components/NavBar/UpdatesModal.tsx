@@ -37,7 +37,8 @@ const UpdatesModal: React.FC = () => {
                 {/*body*/}
                 <div className="relative p-10 flex-auto">
                   <ul className="list-disc">
-                    <li className="my-4 text-slate-200 text-lg leading-relaxed">Autocompletion for locations on the searchbar. </li>
+                    <li className="my-4 text-slate-200 text-lg leading-relaxed">Smoother / faster rendering of the map. </li>
+                    <li className="my-4 text-slate-200 text-lg leading-relaxed">Autocompletion for locations on the search bar. </li>
                     <li className="my-4 text-slate-200 text-lg leading-relaxed">A drag and droppable pin that fetches live air data.</li>
                     <li className="my-4 text-slate-200 text-lg leading-relaxed">Data visualization: Graph for historical air pollution.</li>
                   </ul>

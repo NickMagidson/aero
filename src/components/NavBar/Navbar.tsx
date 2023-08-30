@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Menu from '../../public/menu2.png';
+import Menu from '../../../public/menu2.png';
 import Image from "next/image";
-import Logo from '../../public/airLogo.png'
+import Logo from '../../../public/airLogo.png'
 import AboutModal from "./AboutModal";
 import UpdatesModal from "./UpdatesModal";
 // import SearchBar from "./SearchBar";

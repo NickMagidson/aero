@@ -52,10 +52,10 @@ CTRL + ALT + A to toggle Tawilwind Code readability
   - ~~Color code gradient for text~~
   - ~~Make Loader its own component~~
   - ~~Fix mobile responsive bug (no scroll or smaller)~~
-  - Component organization
-  - make map false for mobile?
-  - Implement a more mobile design (hide arrow wordmark, smaller search bar?, simplify component to aqi word and searchbar.)
+  - ~~Component organization~~
+  - Make map false for mobile?
   - Data visualization with d3.js or chart.js
+  - Implement a more mobile design (hide arrow wordmark, smaller search bar?, simplify component to aqi word and searchbar.)
   - Add auto complete for the search bar (Google places API?)
   - Allow drag and droppable pin to change Air data
 
