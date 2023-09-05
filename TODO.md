@@ -53,10 +53,15 @@ CTRL + ALT + A to toggle Tawilwind Code readability
   - ~~Make Loader its own component~~
   - ~~Fix mobile responsive bug (no scroll or smaller)~~
   - ~~Component organization~~
+  - ~~Add tooltip dialog boxes (defines what co, no, etc mean)~~
   - Make map false for mobile?
+  - Utilize SSR for OpenWeather APIs
   - Data visualization with d3.js or chart.js
   - Implement a more mobile design (hide arrow wordmark, smaller search bar?, simplify component to aqi word and searchbar.)
   - Add auto complete for the search bar (Google places API?)
   - Allow drag and droppable pin to change Air data
+  - Bubble overlays with AQI for some locations (map clustering)
+  - Reintergrate gauge with colors (perhaps a new gauge? chart.js?)
+  - Have location of the visitor be the default coordinates
 
 
