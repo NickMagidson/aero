@@ -77,7 +77,7 @@ const AirData: React.FC =  () => {
             </>
           ) : ( <Loader /> )}
         </main>
-        <Map accessToken={MAP_TOKEN}  />
+      <Map accessToken={MAP_TOKEN} />
     </>
   );
 }

@@ -49,12 +49,14 @@ CTRL + ALT + A to toggle Tawilwind Code readability
 
 
 5. Mapbox Refactor
-  - Implement new map
+  - ~~Implement new map~~
     - ~~Make fullscreen~~
-    - Add loader through conditional rendering
-  - New searchbar with autofill for cities and address that match coordinates
-  - Geocoding API
+  - Add flyTo on search input
+  - New searchbar with autofill for cities and address that match coordinates (Mapbox API?)
   - Make sure Geocoding API and searchbar match with the coordinates of OpenWeather's API. Display air data accordingly.
+  - Lat and Lon bar display
+  - Have location of the visitor be the default coordinates (addControl())
+    - Fix position of button
 
 
 Updates
@@ -64,11 +66,10 @@ Updates
   - ~~Fix mobile responsive bug (no scroll or smaller)~~
   - ~~Component organization~~
   - ~~Add tooltip dialog boxes (defines what co, no, etc mean)~~
+  - App Loader
   - Utilize SSR for OpenWeather APIs
   - Reintergrate gauge with colors (perhaps a new gauge? chart.js?)
   - Data visualization with d3.js or chart.js
-  - Add auto complete for the search bar (Google places API? or Mapbox)
-  - Have location of the visitor be the default coordinates
   - Bubble overlays with AQI for some locations (map clustering)
   - Allow drag and droppable pin to change Air data
   - Make map false for mobile?
