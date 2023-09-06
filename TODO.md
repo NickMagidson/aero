@@ -47,21 +47,31 @@ CTRL + ALT + A to toggle Tawilwind Code readability
   - ~~Create small top right blurb with about the app. maybe mini updates section~~
   - ~~Deploy on Netlify~~
 
-5. Updates
+
+5. Mapbox Refactor
+  - Implement new map
+    - ~~Make fullscreen~~
+    - Add loader through conditional rendering
+  - New searchbar with autofill for cities and address that match coordinates
+  - Geocoding API
+  - Make sure Geocoding API and searchbar match with the coordinates of OpenWeather's API. Display air data accordingly.
+
+
+Updates
   - ~~Load spinner!~~
   - ~~Color code gradient for text~~
   - ~~Make Loader its own component~~
   - ~~Fix mobile responsive bug (no scroll or smaller)~~
   - ~~Component organization~~
   - ~~Add tooltip dialog boxes (defines what co, no, etc mean)~~
-  - Make map false for mobile?
   - Utilize SSR for OpenWeather APIs
-  - Data visualization with d3.js or chart.js
-  - Implement a more mobile design (hide arrow wordmark, smaller search bar?, simplify component to aqi word and searchbar.)
-  - Add auto complete for the search bar (Google places API?)
-  - Allow drag and droppable pin to change Air data
-  - Bubble overlays with AQI for some locations (map clustering)
   - Reintergrate gauge with colors (perhaps a new gauge? chart.js?)
+  - Data visualization with d3.js or chart.js
+  - Add auto complete for the search bar (Google places API? or Mapbox)
   - Have location of the visitor be the default coordinates
+  - Bubble overlays with AQI for some locations (map clustering)
+  - Allow drag and droppable pin to change Air data
+  - Make map false for mobile?
+  - Implement a more mobile design (hide arrow wordmark, smaller search bar?, simplify component to aqi word and searchbar.)
 
 

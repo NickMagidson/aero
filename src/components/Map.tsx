@@ -1,34 +1,41 @@
-import React, { useEffect, useRef } from 'react';
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
-import 'leaflet/dist/leaflet.css'
+import React, { useRef, useEffect, useState } from 'react';
+
+// import ReactMapGL from 'react-map-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import mapboxgl from 'mapbox-gl';
+import Loader from './Loader';
+
+mapboxgl.accessToken = 'pk.eyJ1IjoicmVkbGlvbjk1IiwiYSI6ImNsbTd0b2RydjAyamIzZGxidWg4azc3eDcifQ.niHxh5TLu_CUQZL-JMSLGA';
+
 
 interface MapProps {
-  center: [number, number],
-  attribution: string,
+  accessToken: any;
 }
 
-const defaultCenter: [number, number] = [40.7128, -74.0060]; // New York City
+const Map: React.FC<MapProps> = () => {
 
-const Map: React.FC<MapProps> = ({ center = defaultCenter }) => {
+  const mapContainer = useRef(null);
+  const map = useRef(null);
+  const [lat, setLat] = useState(42.35);
+  const [lng, setLng] = useState(-70.9);
+  const [zoom, setZoom] = useState(9);
+  // const [mapLoaded, setMapLoaded] = useState(false);
 
-  const mapRef = useRef<any>(null); // Reference to the MapContainer
   useEffect(() => {
-    if (mapRef.current && center) {
-      // Animate the map to the new coordinates with a smooth transition
-      mapRef.current.flyTo(center, 11, {
-        duration: 6, // Animation duration in seconds
-      });
-    }
-  }, [center]);
+    if (map.current) return; // initialize map only once
+    map.current = new mapboxgl.Map({
+    container: mapContainer.current,
+    style: 'mapbox://styles/mapbox/streets-v12',
+    center: [lng, lat],
+    zoom: zoom
+    });
+  });
 
   return (
-    <MapContainer id='map-container' ref={mapRef} center={defaultCenter} zoom={13} scrollWheelZoom={true}>
-      <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-    </MapContainer>
-  )
-}
+    <>
+      <div ref={mapContainer} id='map-container'></div>
+    </>
+  );
+};
 
-export default Map
+export default Map;

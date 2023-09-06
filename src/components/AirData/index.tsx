@@ -38,7 +38,8 @@ const AirData: React.FC =  () => {
   const gaugeValue = aqiValues[data?.aqi || 0];
 
   const API_KEY = '67224de3b5da9b6e57e30c7be68cd834';
-
+  const MAP_TOKEN = 'pk.eyJ1IjoicmVkbGlvbjk1IiwiYSI6ImNsbTd2cDVkMzAzdDUzam1zYnd5dXdwdTQifQ.DLJTzbg_x88gmEV6NNrHjg'
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -76,7 +77,7 @@ const AirData: React.FC =  () => {
             </>
           ) : ( <Loader /> )}
         </main>
-      <Map center={[lat, lon]} />
+        <Map accessToken={MAP_TOKEN}  />
     </>
   );
 }
