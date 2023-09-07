@@ -10,7 +10,6 @@ interface AirDataGridProps {
   data: any;
   end: any | undefined;
   value: number;
- 
 }
 
 const pollutantGases = [

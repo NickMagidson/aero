@@ -1,34 +1,58 @@
-import React, { useEffect, useRef } from 'react';
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
-import 'leaflet/dist/leaflet.css'
+import React, { useRef, useEffect, useState } from 'react';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import mapboxgl from 'mapbox-gl';
+
+mapboxgl.accessToken = 'pk.eyJ1IjoicmVkbGlvbjk1IiwiYSI6ImNsbTd0b2RydjAyamIzZGxidWg4azc3eDcifQ.niHxh5TLu_CUQZL-JMSLGA';
 
 interface MapProps {
-  center: [number, number],
-  attribution: string,
+  accessToken: any;
+  lat: number;
+  lon: number;
 }
 
-const defaultCenter: [number, number] = [40.7128, -74.0060]; // New York City
+const Map: React.FC<MapProps> = ({ lat, lon }) => {
+  const mapContainer = useRef<HTMLDivElement | null>(null);
+  const map = useRef<mapboxgl.Map | null>(null);
+  const [zoom, setZoom] = useState(2);
 
-const Map: React.FC<MapProps> = ({ center = defaultCenter }) => {
-
-  const mapRef = useRef<any>(null); // Reference to the MapContainer
   useEffect(() => {
-    if (mapRef.current && center) {
-      // Animate the map to the new coordinates with a smooth transition
-      mapRef.current.flyTo(center, 11, {
-        duration: 6, // Animation duration in seconds
+    if (!map.current && mapContainer.current) {
+      const container: string | HTMLElement = mapContainer.current;
+      map.current = new mapboxgl.Map({
+        container,
+        style: 'mapbox://styles/mapbox/streets-v12',
+        center: [lon, lat],
+        zoom: zoom,
       });
+
+      map.current.addControl(
+        new mapboxgl.GeolocateControl({
+          positionOptions: {
+            enableHighAccuracy: true,
+          },
+          trackUserLocation: false,
+          showUserHeading: true,
+        })
+      );
+    } else if (map.current) {
+      // Check if the user's input coordinates have changed
+      const currentCenter = map.current.getCenter();
+      if (lat !== currentCenter.lat || lon !== currentCenter.lng) {
+        // Use the `flyTo` method to smoothly transition to the new coordinates
+        map.current.flyTo({
+          center: [lon, lat],
+          zoom: 17, // You can set the desired zoom level here
+          essential: true, // This ensures the animation is not canceled by user interactions
+        });
+      }
     }
-  }, [center]);
+  }, [lat, lon, zoom]);
 
   return (
-    <MapContainer id='map-container' ref={mapRef} center={defaultCenter} zoom={13} scrollWheelZoom={true}>
-      <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-    </MapContainer>
-  )
-}
+    <div>
+      <div ref={mapContainer} id="map-container"></div>
+    </div>
+  );
+};
 
-export default Map
+export default Map;
