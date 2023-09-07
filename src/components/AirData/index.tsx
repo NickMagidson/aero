@@ -87,7 +87,7 @@ const AirData: React.FC =  () => {
           ) : ( <Loader /> )}
         </main>
         {/* setLat={setLat} setLon={setLon} */}
-      <Map accessToken={MAP_TOKEN} /> 
+      <Map accessToken={MAP_TOKEN} lat={lat} lon={lon} /> 
     </>
   );
 }

@@ -1,19 +1,18 @@
 import React, { useRef, useEffect, useState } from 'react';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from 'mapbox-gl';
-import Loader from './Loader';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoicmVkbGlvbjk1IiwiYSI6ImNsbTd0b2RydjAyamIzZGxidWg4azc3eDcifQ.niHxh5TLu_CUQZL-JMSLGA';
 
 interface MapProps {
   accessToken: any;
+  lat: number;
+  lon: number;
 }
 
-const Map: React.FC<MapProps> = () => {
+const Map: React.FC<MapProps> = ({ lat, lon }) => {
   const mapContainer = useRef<HTMLDivElement | null>(null);
   const map = useRef<mapboxgl.Map | null>(null);
-  const [lat, setLat] = useState(0);
-  const [lng, setLng] = useState(0);
   const [zoom, setZoom] = useState(2);
 
   useEffect(() => {
@@ -22,41 +21,36 @@ const Map: React.FC<MapProps> = () => {
       map.current = new mapboxgl.Map({
         container,
         style: 'mapbox://styles/mapbox/streets-v12',
-        center: [lng, lat],
-        zoom: zoom
+        center: [lon, lat],
+        zoom: zoom,
       });
 
       map.current.addControl(
         new mapboxgl.GeolocateControl({
-        positionOptions: {
-        enableHighAccuracy: true
-        },
-        // When active the map will receive updates to the device's location as it changes.
-        trackUserLocation: false,
-        // Draw an arrow next to the location dot to indicate which direction the device is heading.
-        showUserHeading: true
+          positionOptions: {
+            enableHighAccuracy: true,
+          },
+          trackUserLocation: false,
+          showUserHeading: true,
         })
       );
+    } else if (map.current) {
+      // Check if the user's input coordinates have changed
+      const currentCenter = map.current.getCenter();
+      if (lat !== currentCenter.lat || lon !== currentCenter.lng) {
+        // Use the `flyTo` method to smoothly transition to the new coordinates
+        map.current.flyTo({
+          center: [lon, lat],
+          zoom: 17, // You can set the desired zoom level here
+          essential: true, // This ensures the animation is not canceled by user interactions
+        });
+      }
     }
-
-    // map.current?.on('move', () => {
-    //   const lngValue = parseFloat(map.current!.getCenter().lng.toFixed(4));
-    //   const latValue = parseFloat(map.current!.getCenter().lat.toFixed(4));
-    //   const zoomValue = parseFloat(map.current!.getZoom().toFixed(2));
-    
-    //   setLng(lngValue);
-    //   setLat(latValue);
-    //   setZoom(zoomValue);
-    // });
-  });
-
+  }, [lat, lon, zoom]);
 
   return (
     <div>
-      {/* <div id="sidebar">
-        Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
-      </div> */}
-      <div ref={mapContainer} id='map-container'></div>
+      <div ref={mapContainer} id="map-container"></div>
     </div>
   );
 };
