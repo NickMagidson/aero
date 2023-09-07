@@ -43,6 +43,7 @@ const Map: React.FC<MapProps> = ({ lat, lon }) => {
           center: [lon, lat],
           zoom: 17, // You can set the desired zoom level here
           essential: true, // This ensures the animation is not canceled by user interactions
+          duration: 15000
         });
       }
     }
