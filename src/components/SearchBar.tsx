@@ -9,16 +9,19 @@ const SearchBar: React.FC<{
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
-    const apiKey = '67224de3b5da9b6e57e30c7be68cd834';
-    const apiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${searchQuery}&limit=1&appid=${apiKey}`;
+    // const apiKey = '67224de3b5da9b6e57e30c7be68cd834';
+    // const apiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${searchQuery}&limit=1&appid=${apiKey}`;
+
+    const apiKey = 'pk.eyJ1IjoicmVkbGlvbjk1IiwiYSI6ImNsbTd2cDVkMzAzdDUzam1zYnd5dXdwdTQifQ.DLJTzbg_x88gmEV6NNrHjg'
+    const apiUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${searchQuery}.json?access_token=${apiKey}`;
 
     try {
       const response = await fetch(apiUrl);
       const data = await response.json();
 
-      if (data && data.length > 0) {
-        setLat(data[0].lat);
-        setLon(data[0].lon);
+      if (data.features && data.features.length > 0) {
+        setLon(data.features[0].center[0]);
+        setLat(data.features[0].center[1]);
       }
     } catch (error) {
       console.error('Error fetching data:', error);

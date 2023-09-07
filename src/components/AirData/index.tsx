@@ -40,32 +40,41 @@ const AirData: React.FC =  () => {
   const API_KEY = '67224de3b5da9b6e57e30c7be68cd834';
   const MAP_TOKEN = 'pk.eyJ1IjoicmVkbGlvbjk1IiwiYSI6ImNsbTd2cDVkMzAzdDUzam1zYnd5dXdwdTQifQ.DLJTzbg_x88gmEV6NNrHjg'
   
+  const fetchAirPollutionData = async () => {
+    try {
+      const response = await axios.get(
+        `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${API_KEY}`
+      );
+      const { data } = response;
+      setData({
+        location: data.coord && `${data.coord.lat}, ${data.coord.lon}`,
+        components: data.list && data.list[0].components,
+        aqi: data.list && data.list[0].main.aqi
+        // co, no, no2, o3, so2, pm2_5, pm10, nh3
+      });
+    } catch (error) {
+      console.error('Error fetching air pollution data:', error);
+      setData(null);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${API_KEY}`
-        );
-        const { data } = response;
-        setData({
-          location: data.coord && `${data.coord.lat}, ${data.coord.lon}`,
-          components: data.list && data.list[0].components,
-          aqi: data.list && data.list[0].main.aqi
-          // co, no, no2, o3, so2, pm2_5, pm10, nh3
-        });
-      } catch (error) {
-        console.error('Error fetching air pollution data:', error);
-        setData(null);
-      }
-    };
-    fetchData();
-  }, [lat, lon]);
+    fetchAirPollutionData();
+  });
+
+  const handleSearchLat = (newLat: number | any) => {
+    setLat(newLat);
+  };
+
+  const handleSearchLon = (newLon: number | any) => {
+    setLon(newLon);
+  };
 
   return (
     <>
       {/* hidden sm:flex */}
       <div className='flex w-auto mt-5 mb-1 sm:mb-5 sm:mt-0 '>
-        <SearchBar setLat={setLat} setLon={setLon}  />
+        <SearchBar setLat={handleSearchLat} setLon={handleSearchLon}  />
       </div>
         <main id='air-data-container' className="z-10 p-5 h-auto w-100 max-w-2xl bg-slate-950 rounded-2xl bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50 border border-gray-100 shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px]"> 
             {data ? (
@@ -77,7 +86,8 @@ const AirData: React.FC =  () => {
             </>
           ) : ( <Loader /> )}
         </main>
-      <Map accessToken={MAP_TOKEN} />
+        {/* setLat={setLat} setLon={setLon} */}
+      <Map accessToken={MAP_TOKEN} /> 
     </>
   );
 }
