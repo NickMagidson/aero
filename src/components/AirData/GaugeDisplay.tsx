@@ -106,11 +106,11 @@ const GaugeDisplay: React.FC<GaugeProps> = ({ gaugeValue, data, dataAqi }) => {
       width: 0.2,
       subArcs:
         [
-          { limit: 20, tooltip: { text: '201-300' } },
-          { limit: 40, tooltip: { text: '151-200' } },
-          { limit: 60, tooltip: { text: '101-150' } },
-          { limit: 80, tooltip: { text: '51-100' } },
-          { limit: 100, tooltip: { text: '0-50' }, showTick: false },
+          { limit: 20, tooltip: { text: 'AQI: 201-300' } },
+          { limit: 40, tooltip: { text: 'AQI: 151-200' } },
+          { limit: 60, tooltip: { text: 'AQI:101-150' } },
+          { limit: 80, tooltip: { text: 'AQI: 51-100' } },
+          { limit: 100, tooltip: { text: 'AQI: 0-50' } },
         ],
       }}
       labels={{
