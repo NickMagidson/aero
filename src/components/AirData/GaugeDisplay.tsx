@@ -18,35 +18,35 @@ interface GaugeProps {
   aqi: any | undefined;
 }
 
-const chartData = {
-  datasets: [
-    {
-      label: "AQI",
-      data: [60, 60, 60, 60, 60],
-      labels: ['Very Poor', 'Poor', 'Moderate', 'Fair', 'Good'],
-      backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)',
-      ],
-      borderColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)',
-      ],
-      borderWidth: 1,
-      circumference: 180,
-      rotation: 270,
-      hoverOffset: 4
-    },
-  ]
-};
+// const chartData = {
+//   datasets: [
+//     {
+//       label: "AQI",
+//       data: [60, 60, 60, 60, 60],
+//       labels: ['Very Poor', 'Poor', 'Moderate', 'Fair', 'Good'],
+//       backgroundColor: [
+//         'rgba(255, 99, 132, 0.2)',
+//         'rgba(54, 162, 235, 0.2)',
+//         'rgba(255, 206, 86, 0.2)',
+//         'rgba(75, 192, 192, 0.2)',
+//         'rgba(153, 102, 255, 0.2)',
+//         'rgba(255, 159, 64, 0.2)',
+//       ],
+//       borderColor: [
+//         'rgba(255, 99, 132, 1)',
+//         'rgba(54, 162, 235, 1)',
+//         'rgba(255, 206, 86, 1)',
+//         'rgba(75, 192, 192, 1)',
+//         'rgba(153, 102, 255, 1)',
+//         'rgba(255, 159, 64, 1)',
+//       ],
+//       borderWidth: 1,
+//       circumference: 180,
+//       rotation: 270,
+//       hoverOffset: 4
+//     },
+//   ]
+// };
 
 
 const GaugeDisplay: React.FC<GaugeProps> = ({ gaugeValue, data, dataAqi }) => {
@@ -101,21 +101,21 @@ const GaugeDisplay: React.FC<GaugeProps> = ({ gaugeValue, data, dataAqi }) => {
     <GaugeComponent
       type="semicircle"
       arc={{
-      colorArray: ['#dc2626', '#ef4444', '#ea580c', '#0284c7', '#16a34a'],
+      colorArray: ['#941100', '#DC2727', '#F0803D', '#60C4E6', '#00d170'],
       padding: 0.02,
+      width: 0.2,
       subArcs:
         [
           { limit: 20, tooltip: { text: '201-300' } },
-          { limit: 40, tooltip: { text: '201-300' } },
-          { limit: 60, tooltip: { text: '201-300' } },
-          { limit: 80 },
-          { limit: 100, showTick: false },
+          { limit: 40, tooltip: { text: '151-200' } },
+          { limit: 60, tooltip: { text: '101-150' } },
+          { limit: 80, tooltip: { text: '51-100' } },
+          { limit: 100, tooltip: { text: '0-50' }, showTick: false },
         ],
-        
       }}
       labels={{
         valueLabel: {
-          matchColorWithArc: true,
+          matchColorWithArc: false,
           hide: true
         },
         tickLabels: {
@@ -123,7 +123,7 @@ const GaugeDisplay: React.FC<GaugeProps> = ({ gaugeValue, data, dataAqi }) => {
           type: "outer",
         }
       }}
-      pointer={{type: "arrow", animationDelay: 0, color:"white" }}
+      pointer={{type: "needle", animationDelay: 0, color:"white" }}
       value={gaugeValue}
     />
 
@@ -137,9 +137,9 @@ const GaugeDisplay: React.FC<GaugeProps> = ({ gaugeValue, data, dataAqi }) => {
             : data.aqi === 3
             ? 'bg-gradient-to-r from-orange-600 to-orange-200 bg-clip-text text-transparent'
             : data.aqi === 4
-            ? 'bg-gradient-to-r from-red-500 via-red-600 to-yellow-500 text-transparent bg-clip-text'
+            ? 'bg-gradient-to-r from-red-400 via-red-500 to-yellow-500 text-transparent bg-clip-text'
             : data.aqi === 5
-            ? 'bg-gradient-to-r from-red-600 to-red-200 bg-clip-text text-transparent'
+            ? 'bg-gradient-to-r from-red-600 to-red-800 bg-clip-text text-transparent'
             : ''
         }`}
       >
