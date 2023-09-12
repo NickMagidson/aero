@@ -58,6 +58,12 @@ CTRL + ALT + A to toggle Tawilwind Code readability
   - Have location of the visitor be the default coordinates (addControl())
     - Fix position of button
 
+6. App Loader
+  - Conditional rendering for Home component
+  - Increase size and center (may need to change up Loader)
+  - Browse other components incase there is anything cooler
+  - Potentially fade-in the AirData component on load
+
 
 Updates
   - ~~Load spinner!~~
@@ -69,7 +75,6 @@ Updates
   - ~~Reintergrate gauge with colors (perhaps a new gauge? chart.js?)~~
   - ~~Center loaders~~
   - Bubble overlays with AQI for some locations (map clustering)
-  - App Loader
   - Data visualization with d3.js or chart.js
   - Color code for gases
   - Allow drag and droppable pin to change Air data
