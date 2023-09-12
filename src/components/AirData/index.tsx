@@ -14,7 +14,7 @@ const inter = Inter({ subsets: ['latin'] })
 const Map: any = dynamic(
   () => import('../../components/Map'),
   { 
-    loading: () => <p className='text-white'>A Map is loading...</p>,
+    loading: () => <p className='text-white m-auto'>A Map is loading...</p>,
     ssr: false // Prevents server-side render
   }
 )

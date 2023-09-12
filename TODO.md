@@ -66,13 +66,13 @@ Updates
   - ~~Fix mobile responsive bug (no scroll or smaller)~~
   - ~~Component organization~~
   - ~~Add tooltip dialog boxes (defines what co, no, etc mean)~~
-  - Reintergrate gauge with colors (perhaps a new gauge? chart.js?)
-    - Plan A: use react-gauge-component, style accordingly, and make sure it doesnt break deployment.
-    - plan B: Chart.js. Looks nicer, and really customize tooltips for AQI ranges. Size accordingly. (mover coodinates display for design purposes?)
-  - Color code for gases
-  - App Loader
+  - ~~Reintergrate gauge with colors (perhaps a new gauge? chart.js?)~~
+  - Override styles for Gauge tootlips
+  - Center loaders
   - Bubble overlays with AQI for some locations (map clustering)
+  - App Loader
   - Data visualization with d3.js or chart.js
+  - Color code for gases
   - Allow drag and droppable pin to change Air data
   - Utilize SSR for OpenWeather APIs
   - Make map false for mobile?
