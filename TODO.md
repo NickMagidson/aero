@@ -67,8 +67,7 @@ Updates
   - ~~Component organization~~
   - ~~Add tooltip dialog boxes (defines what co, no, etc mean)~~
   - ~~Reintergrate gauge with colors (perhaps a new gauge? chart.js?)~~
-  - Override styles for Gauge tootlips
-  - Center loaders
+  - ~~Center loaders~~
   - Bubble overlays with AQI for some locations (map clustering)
   - App Loader
   - Data visualization with d3.js or chart.js

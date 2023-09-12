@@ -38,10 +38,9 @@ const UpdatesModal: React.FC = () => {
                 <div className="relative p-10 flex-auto">
                   <ul className="list-disc">
                     <li className="text-slate-200 text-lg leading-relaxed">Smoother / faster rendering of the map. </li>
-                    <li className="text-slate-200 text-lg leading-relaxed">Color chart to visualize AQI scale. </li>
+                    <li className="text-slate-200 text-lg leading-relaxed">Different zoom levels for specific address vs city/country. </li>
                     <li className="text-slate-200 text-lg leading-relaxed">User locations set as the default coordinates.</li>
                     <li className="text-slate-200 text-lg leading-relaxed">Bubble overlays with AQI for some locations.</li>
-                    <li className="text-slate-200 text-lg leading-relaxed">A drag and droppable pin that fetches live air data.</li>
                     <li className="text-slate-200 text-lg leading-relaxed">Data visualization: Graph for historical air pollution.</li>
                   </ul>
                 </div>

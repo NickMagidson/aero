@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from 'mapbox-gl';
 
+
 mapboxgl.accessToken = 'pk.eyJ1IjoicmVkbGlvbjk1IiwiYSI6ImNsbTd0b2RydjAyamIzZGxidWg4azc3eDcifQ.niHxh5TLu_CUQZL-JMSLGA';
 
 interface MapProps {
@@ -13,6 +14,7 @@ interface MapProps {
 const Map: React.FC<MapProps> = ({ lat, lon }) => {
   const mapContainer = useRef<HTMLDivElement | null>(null);
   const map = useRef<mapboxgl.Map | null>(null);
+  const marker = useRef<mapboxgl.Marker | null>(null);
   const [zoom, setZoom] = useState(2);
 
   useEffect(() => {
@@ -34,7 +36,17 @@ const Map: React.FC<MapProps> = ({ lat, lon }) => {
           showUserHeading: true,
         })
       );
-    } else if (map.current) {
+
+      // Create a marker and add it to the map
+      marker.current = new mapboxgl.Marker()
+        .setLngLat([lon, lat])
+        .addTo(map.current);
+      // Repeating this will add more markers to the map
+      // Need to map through an array of locations to render a cluster
+      // From there, add popups with AQI data from API
+      
+        
+    } else if (map.current && marker.current) {
       // Check if the user's input coordinates have changed
       const currentCenter = map.current.getCenter();
       if (lat !== currentCenter.lat || lon !== currentCenter.lng) {
@@ -45,6 +57,9 @@ const Map: React.FC<MapProps> = ({ lat, lon }) => {
           essential: true, // This ensures the animation is not canceled by user interactions
           duration: 15000
         });
+
+        // Update the marker's position
+        marker.current.setLngLat([lon, lat]);
       }
     }
   }, [lat, lon, zoom]);
