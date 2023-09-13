@@ -77,6 +77,7 @@ Updates
   - Bubble overlays with AQI for some locations (map clustering)
   - Data visualization with d3.js or chart.js
   - Color code for gases
+  - Better centering of the map (help with control display)
   - Allow drag and droppable pin to change Air data
   - Utilize SSR for OpenWeather APIs
   - Make map false for mobile?
