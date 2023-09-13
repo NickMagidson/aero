@@ -59,9 +59,9 @@ CTRL + ALT + A to toggle Tawilwind Code readability
     - Fix position of button
 
 6. App Loader
-  - Conditional rendering for Home component
-  - Increase size and center (may need to change up Loader)
-  - Browse other components incase there is anything cooler
+  - ~~Conditional rendering for Home component~~
+  - ~~Increase size and center (may need to change up Loader)~~
+  - ~~Browse other components incase there is anything cooler~~
   - Potentially fade-in the AirData component on load
 
 

@@ -25,9 +25,27 @@ html, body {
   height: 100%;
   }
 
-  .gauge-component-arc-tooltip {
-    z-index: 100;
-  }
+.gauge-component-arc-tooltip {
+  z-index: 100;
+}
+
+@keyframes myAnim {
+	0% {
+		opacity: 0;
+		transform: scale(0.6);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+.my-anim {
+  animation: myAnim 2s ease 0s 1 normal forwards; /* Adjust the duration and timing function as needed */
+}
+
+  /* For lat, lon display */
 /* #sidebar {
   background-color: rgba(35, 55, 75, 0.9);
   color: #fff;
