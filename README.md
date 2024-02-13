@@ -1,4 +1,4 @@
-![screenshot](./public/aero11.PNG)
+![screenshot](https://nickmagidson.com/aeroNew.127cb9c1.jpg)
 
 ## Aero
 
