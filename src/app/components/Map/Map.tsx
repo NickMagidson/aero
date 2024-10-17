@@ -6,7 +6,7 @@ import mapboxgl from 'mapbox-gl';
 mapboxgl.accessToken = 'pk.eyJ1IjoicmVkbGlvbjk1IiwiYSI6ImNsbTd0b2RydjAyamIzZGxidWg4azc3eDcifQ.niHxh5TLu_CUQZL-JMSLGA';
 
 interface MapProps {
-  accessToken: any;
+  // accessToken: any;
   lat: number;
   lon: number;
 }

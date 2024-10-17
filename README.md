@@ -1,45 +1,36 @@
-![screenshot](https://nickmagidson.com/aeroNew.127cb9c1.jpg)
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Aero
+## Getting Started
 
-Air pollution dashboard web application built with the T3 stack. Wielding OpenWeather API data, geocoding, and search / map functionality.
-<br />
+First, run the development server:
 
-[Live Preview](https://aero-dashboard.netlify.app/)
-
-## Key Features
-
-* Real-time Data: The dashboard fetches up-to-date air pollution data from the OpenWeatherMap API based on the user's chosen location.
-* AQI Visualization: The dashboard uses a gauge component to visually represent the Air Quality Index (AQI), providing an intuitive understanding of air quality levels.
-* Pollutant Components: A data grid displays individual pollutant components, such as CO, NO, NO2, O3, SO2, PM2.5, PM10, and NH3, allowing users to assess the specific air pollutants present.
-* Location Search: Users can search for air pollution data by entering a city of town name using the integrated search bar.
-* Map functionality: Allows the user to view a map and pin to a location on search input. Animated panning is implemented for a nice user experience.
-
-
-
-## Tools
-
-This software uses the following tools and open source packages:
-
-- [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Next.js](https://nextjs.org/)
-- [React](https://react.dev/)
-- [OpenWeather API](https://openweathermap.org/)
-- [Leaflet](https://leafletjs.com/)
-- [Axios](https://axios-http.com/)
-
-## How To Use
 ```bash
-# Clone this repository
-$ git clone git@github.com:NickMagidson/aero.git
-
-# Go into the repository
-$ cd aero
-
-# Install dependencies
-$ npm install
-
-# Run the app
-$ npm start
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
