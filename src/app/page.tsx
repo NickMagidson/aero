@@ -1,6 +1,7 @@
 "use client"
 import React from 'react';
 import dynamic from 'next/dynamic';
+// import SearchBar from './components/SearchBar';
 
 const Map: any = dynamic(
   () => import('@/app/components/Map/Map'),
@@ -14,7 +15,7 @@ const Map: any = dynamic(
 
 export default function Home() {
   // Mapbox API Token
-  const MAP_TOKEN = 'pk.eyJ1IjoicmVkbGlvbjk1IiwiYSI6ImNsbTd2cDVkMzAzdDUzam1zYnd5dXdwdTQifQ.DLJTzbg_x88gmEV6NNrHjg'
+  const MAPBOX_API_KEY = process.env.NEXT_PUBLIC_MAPBOX_API_KEY
 
   // New York coordinates for reference
   const defaultLatitude = 40.7128;
@@ -28,9 +29,10 @@ export default function Home() {
   return (
 
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      {/* Map: absolute background layer */}
-
-      <Map accessToken={MAP_TOKEN} lat={defaultLatitude} lon={defaultLongitude} /> 
+      {/* <div className='flex w-auto mt-5 mb-1 sm:mb-5 sm:mt-0 '>
+        <SearchBar setLat={handleSearchLat} setLon={handleSearchLon}  />
+      </div> */}
+      <Map accessToken={MAPBOX_API_KEY} lat={defaultLatitude} lon={defaultLongitude} /> 
   
       {/* Search Bar */}
       {/* Info Div */}

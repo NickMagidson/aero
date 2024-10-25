@@ -2,20 +2,26 @@ import React, { useRef, useEffect, useState } from 'react';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from 'mapbox-gl';
 
-
-mapboxgl.accessToken = 'pk.eyJ1IjoicmVkbGlvbjk1IiwiYSI6ImNsbTd0b2RydjAyamIzZGxidWg4azc3eDcifQ.niHxh5TLu_CUQZL-JMSLGA';
-
 interface MapProps {
-  // accessToken: any;
+  accessToken: string;
   lat: number;
   lon: number;
 }
 
-const Map: React.FC<MapProps> = ({ lat, lon }) => {
+const Map: React.FC<MapProps> = ({ lat, lon, accessToken }) => {
   const mapContainer = useRef<HTMLDivElement | null>(null);
   const map = useRef<mapboxgl.Map | null>(null);
   const marker = useRef<mapboxgl.Marker | null>(null);
   const [zoom, setZoom] = useState(2);
+
+  // const MAPBOX_API_KEY = process.env.NEXT_PUBLIC_MAPBOX_API_KEY;
+
+  // if (!MAPBOX_API_KEY) {
+  //   throw new Error('Mapbox API key is missing. Please add it to your .env file.');
+  // }
+
+  mapboxgl.accessToken = accessToken; // Now it's guaranteed to be a string
+  
 
   useEffect(() => {
     if (!map.current && mapContainer.current) {
