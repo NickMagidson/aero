@@ -38,7 +38,7 @@ export default function Home() {
   return (
 
     <div className="font-[family-name:var(--font-geist-sans)]">
-      <div className='flex w-auto m-2'>
+      <div className='flex w-auto m-2 sm:w-2/4 md:w-1/2s lg:w-1/4' >
         <SearchBar setLat={handleSearchLat} setLon={handleSearchLon}  />
       </div>
       <Map accessToken={MAPBOX_API_KEY} lat={lat} lon={lon} /> 
