@@ -1,7 +1,7 @@
 "use client"
-import React from 'react';
+import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
-// import SearchBar from './components/SearchBar';
+import SearchBar from './components/SearchBar';
 
 const Map: any = dynamic(
   () => import('@/app/components/Map/Map'),
@@ -21,18 +21,27 @@ export default function Home() {
   const defaultLatitude = 40.7128;
   const defaultLongitude = -74.0060;
 
-  // const [lat, setLat] = useState<number | undefined>(defaultLatitude);
-  // const [lon, setLon] = useState<number | undefined>(defaultLongitude);
+  const [lat, setLat] = useState<number | undefined>(defaultLatitude);
+  const [lon, setLon] = useState<number | undefined>(defaultLongitude);
+
+
+  const handleSearchLat = (newLat: number | any) => {
+    setLat(newLat);
+  };
+
+  const handleSearchLon = (newLon: number | any) => {
+    setLon(newLon);
+  };
 
 
 
   return (
 
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      {/* <div className='flex w-auto mt-5 mb-1 sm:mb-5 sm:mt-0 '>
+    <div className="font-[family-name:var(--font-geist-sans)]">
+      <div className='flex w-auto m-2'>
         <SearchBar setLat={handleSearchLat} setLon={handleSearchLon}  />
-      </div> */}
-      <Map accessToken={MAPBOX_API_KEY} lat={defaultLatitude} lon={defaultLongitude} /> 
+      </div>
+      <Map accessToken={MAPBOX_API_KEY} lat={lat} lon={lon} /> 
   
       {/* Search Bar */}
       {/* Info Div */}

@@ -38,7 +38,7 @@ const Map: React.FC<MapProps> = ({ lat, lon, accessToken }) => {
           positionOptions: {
             enableHighAccuracy: true,
           },
-          trackUserLocation: false,
+          trackUserLocation: true,
           showUserHeading: true,
         })
       );
