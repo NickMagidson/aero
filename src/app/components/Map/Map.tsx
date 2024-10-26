@@ -12,7 +12,7 @@ const Map: React.FC<MapProps> = ({ lat, lon, accessToken }) => {
   const mapContainer = useRef<HTMLDivElement | null>(null);
   const map = useRef<mapboxgl.Map | null>(null);
   const marker = useRef<mapboxgl.Marker | null>(null);
-  const [zoom, setZoom] = useState(2);
+  const [zoom] = useState(2);
 
   // const MAPBOX_API_KEY = process.env.NEXT_PUBLIC_MAPBOX_API_KEY;
 
