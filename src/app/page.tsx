@@ -36,9 +36,9 @@ export default function Home() {
 
 
   // Draggable Data Component
-  // 1. Make body heigh 100vh
-  // 2. Position the parent container, overall height will go out of body bounds
-  // 3. The drag div itself will assume a fixed height (for needed data/information)
+  // 1. Make body heigh 100vh - done
+  // 2. Position the parent container, overall height will go out of body bounds - done
+  // 3. The drag div itself will assume a fixed height (for needed data/information). Update: can be auto
   // 4. Should function at bare bones. Polish as needed
   // 5. Next: inner scrolling, style handle, start design
 
@@ -56,16 +56,37 @@ export default function Home() {
 
 
       {/* Parent container for data component */}
-      <div className='absolute overflow-visible bottom-0 border-2 border-red-700 w-full h-80 z-10'>
+      <div className='parent absolute overflow-visible -bottom-56 border-2 border-red-700 w-full z-10'>
 
         <Draggable 
           axis="y" 
           bounds="parent"
-          handle=".dragbar"
+          // handle=".dragbar"
           >
-          <div className="glassmorphism w-11/12 h-auto mx-auto">
-            <strong className="cursor"><div className='dragbar w-1/2 p-4 border-2 mx-auto border-red-700 text-center cursor'>Drag here</div></strong>
-              <p>This is some placeholder test.</p>
+          <div className="glassmorphism flex flex-col gap-8 p-4  w-full h-auto justify-center">
+
+            <div className="cursor">
+              <div className='dragbar mx-auto w-12 border-2 rounded-full border-gray-600 text-center cursor'></div>   
+            </div>
+
+            <div className='weather-main w-64 h-24 mx-auto 
+              rounded-tl-xl rounded-tr-xl rounded-br-xl rounded-bl-xl
+              shadow-[0px_7px_15px_3px_#00000024]'>
+              {/* <h1 className='text-5xl text-center'>27</h1> */}
+            </div>
+
+
+            <div className='w-80 mx-auto flex-col
+              rounded-tl-xl rounded-tr-xl rounded-br-xl rounded-bl-xl
+              border border-[rgba(255,255,255,0.18)] rounded-[10px] bg-[rgba(230,230,230,0.15)] 
+              shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] backdrop-blur-[10.5px]'>
+          
+                <div className="w-10 h-10 bg-gray-300"></div>
+                <div className="w-10 h-10 bg-gray-300"></div>
+                <div className="w-10 h-10 bg-gray-300"></div>
+                <div className="w-10 h-10 bg-gray-300"></div>
+            </div>
+              
           </div>
         </Draggable>
 

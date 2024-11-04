@@ -36,6 +36,10 @@ body {
   height: 100%;
 }
 
+.parent {
+  height: 36rem;
+}
+
 .glassmorphism {
   background: rgba(255, 255, 255, 0.35);
   box-shadow: 0 8px 32px 0 rgba(46, 50, 107, 0.27);
@@ -45,5 +49,8 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
   
+.weather-main {
+  background: #CDE5FC;
 
+}
 
