@@ -58,12 +58,13 @@ export default function Home() {
       {/* Parent container for data component */}
       <div className='parent absolute overflow-visible -bottom-56 border-2 border-red-700 w-full z-10'>
 
-        <Draggable 
+        <Draggable
           axis="y" 
           bounds="parent"
+          defaultPosition={{x: 0, y: 300}}
           // handle=".dragbar"
           >
-          <div className="glassmorphism flex flex-col gap-8 p-4  w-full h-auto justify-center">
+          <div className="glassmorphism flex flex-col justify-center gap-8 p-4 w-full h-auto rounded-tl-2xl rounded-tr-2xl">
 
             <div className="cursor">
               <div className='dragbar mx-auto w-12 border-2 rounded-full border-gray-600 text-center cursor'></div>   
@@ -78,7 +79,7 @@ export default function Home() {
 
             <div className='w-80 mx-auto flex-col
               rounded-tl-xl rounded-tr-xl rounded-br-xl rounded-bl-xl
-              border border-[rgba(255,255,255,0.18)] rounded-[10px] bg-[rgba(230,230,230,0.15)] 
+              border-[rgba(255,255,255,0.18)] rounded-[10px] bg-[rgba(230,230,230,0.15)] 
               shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] backdrop-blur-[10.5px]'>
           
                 <div className="w-10 h-10 bg-gray-300"></div>
