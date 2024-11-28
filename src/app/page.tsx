@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import SearchBar from './components/SearchBar';
 import Draggable from 'react-draggable';
@@ -17,6 +17,7 @@ const Map: any = dynamic(
 export default function Home() {
   // Mapbox API Token
   const MAPBOX_API_KEY = process.env.NEXT_PUBLIC_MAPBOX_API_KEY
+  const OPENWEATHER_API_KEY = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY
 
   // New York coordinates for reference
   const defaultLatitude = 40.7128;
@@ -24,6 +25,32 @@ export default function Home() {
 
   const [lat, setLat] = useState<number | undefined>(defaultLatitude);
   const [lon, setLon] = useState<number | undefined>(defaultLongitude);
+
+
+  const [data, setData] = useState<{
+    location: string;
+    components: Record<string, number>;
+    aqi: number;
+  } | null>(null);
+
+  const fetchAirPollutionData = async () => {
+    try {
+      const response = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${OPENWEATHER_API_KEY}`
+      )
+      const data = await response.json();
+      // setData(data)
+      console.log("Weather api =======> " + JSON.stringify(data))
+
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      setData(null);
+    }
+  };
+
+  useEffect(() => {
+    fetchAirPollutionData();
+  });
 
 
   const handleSearchLat = (newLat: number | any) => {
@@ -56,8 +83,7 @@ export default function Home() {
 
 
       {/* Parent container for data component */}
-      <div className='parent absolute overflow-visible -bottom-56 border-2 border-red-700 w-full z-10'>
-
+      {/* <div className='parent absolute overflow-visible -bottom-56 border-2 border-red-700 w-full z-10'>
         <Draggable
           axis="y" 
           bounds="parent"
@@ -65,18 +91,13 @@ export default function Home() {
           // handle=".dragbar"
           >
           <div className="glassmorphism flex flex-col justify-center gap-8 p-4 w-full h-auto rounded-tl-2xl rounded-tr-2xl">
-
             <div className="cursor">
               <div className='dragbar mx-auto w-12 border-2 rounded-full border-gray-600 text-center cursor'></div>   
             </div>
-
             <div className='weather-main w-64 h-24 mx-auto 
               rounded-tl-xl rounded-tr-xl rounded-br-xl rounded-bl-xl
               shadow-[0px_7px_15px_3px_#00000024]'>
-              {/* <h1 className='text-5xl text-center'>27</h1> */}
             </div>
-
-
             <div className='w-80 mx-auto flex-col
               rounded-tl-xl rounded-tr-xl rounded-br-xl rounded-bl-xl
               border-[rgba(255,255,255,0.18)] rounded-[10px] bg-[rgba(230,230,230,0.15)] 
@@ -87,11 +108,9 @@ export default function Home() {
                 <div className="w-10 h-10 bg-gray-300"></div>
                 <div className="w-10 h-10 bg-gray-300"></div>
             </div>
-              
           </div>
         </Draggable>
-
-      </div>
+      </div> */}
 
       {/* <Draggable
         axis="y"
