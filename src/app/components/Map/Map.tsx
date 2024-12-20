@@ -13,6 +13,7 @@ const Map: React.FC<MapProps> = ({ lat, lon, accessToken }) => {
   const map = useRef<mapboxgl.Map | null>(null);
   const marker = useRef<mapboxgl.Marker | null>(null);
   const [zoom] = useState(1);
+  // const [issLocation, setIssLocation] = useState<{ lat: number; lon: number } | null>(null);
 
   // const MAPBOX_API_KEY = process.env.NEXT_PUBLIC_MAPBOX_API_KEY;
 
@@ -21,7 +22,7 @@ const Map: React.FC<MapProps> = ({ lat, lon, accessToken }) => {
   // }
 
   mapboxgl.accessToken = accessToken; // Now it's guaranteed to be a string
-  
+  const ISS_API_URL = 'http://api.open-notify.org/iss-now.json';
 
   useEffect(() => {
     if (!map.current && mapContainer.current) {
@@ -31,6 +32,7 @@ const Map: React.FC<MapProps> = ({ lat, lon, accessToken }) => {
         style: 'mapbox://styles/mapbox/streets-v12',
         center: [lon, lat],
         zoom: zoom,
+        projection: 'globe'
       });
 
       // map.current.on('style.load', () => {
@@ -78,7 +80,58 @@ const Map: React.FC<MapProps> = ({ lat, lon, accessToken }) => {
         marker.current.setLngLat([lon, lat]);
       }
     }
+
+    // const fetchISSLocation = async () => {
+    //   try {
+    //     const response = await fetch(ISS_API_URL);
+    //     const data = await response.json();
+    //     const { latitude, longitude } = data.iss_position;
+    //     setIssLocation({ lat: parseFloat(latitude), lon: parseFloat(longitude) });
+    //   } catch (error) {
+    //     console.error('Error fetching ISS location:', error);
+    //   }
+    // };
+
+    // fetchISSLocation();
+    
+    // const interval = setInterval(fetchISSLocation, 10); // Update every 10 seconds
+
+    // return () => clearInterval(interval);
+
+
   }, [lat, lon, zoom]);
+  
+
+  // useEffect(() => {
+  //   // Update marker when ISS location changes
+  //   if (map.current && issLocation) {
+  //     const { lat, lon } = issLocation;
+
+  //     // If the marker doesn't exist, create it
+  //     if (!marker.current) {
+  //       marker.current = new mapboxgl.Marker({ color: 'red' })
+  //         .setLngLat([lon, lat])
+  //         .addTo(map.current);
+  //     } else {
+  //       // Update the marker's position
+  //       marker.current.setLngLat([lon, lat]);
+  //     }
+  //     map.current.addLayer({
+  //       id: 'iss',
+  //       type: 'symbol',
+  //       source: 'iss',
+  //       layout: {
+  //         'icon-image': 'rocket'
+  //       }
+  //     });
+  //     // Smoothly move the map to the new location
+  //     // map.current.flyTo({
+  //     //   center: [lon, lat],
+  //     //   essential: true,
+  //     //   speed: 0.5, // Adjust speed of transition
+  //     // });
+  //   }
+  // }, [issLocation]);
 
   return (
     <div>
