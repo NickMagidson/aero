@@ -20,11 +20,11 @@ export default function Home() {
   const OPENWEATHER_API_KEY = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY
 
   // New York coordinates for reference
-  const defaultLatitude = 0;
-  const defaultLongitude = 0;
+  const defaultLatitude = 35.6764;
+  const defaultLongitude = 139.6500;
 
-  const [lat, setLat] = useState<number | string>("");
-  const [lon, setLon] = useState<number | string>("");
+  const [lat, setLat] = useState<number | string>(defaultLatitude);
+  const [lon, setLon] = useState<number | string>(defaultLongitude);
 
 
   const [data, setData] = useState<{

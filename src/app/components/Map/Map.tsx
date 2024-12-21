@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from 'mapbox-gl';
+import { mockMeteoriteData } from '../meteoriteMock.js'
 
 interface MapProps {
   accessToken: string;
@@ -45,15 +46,104 @@ const Map: React.FC<MapProps> = ({ lat, lon, accessToken }) => {
         });
       });
 
-      map.current.addControl(
-        new mapboxgl.GeolocateControl({
-          positionOptions: {
-            enableHighAccuracy: true,
+
+
+
+      const size = 80;
+
+      const createPulsingDot = () => {
+        return {
+          width: size,
+          height: size,
+          data: new Uint8Array(size * size * 4),
+      
+          onAdd: function () {
+            const canvas = document.createElement("canvas");
+            canvas.width = this.width;
+            canvas.height = this.height;
+            this.context = canvas.getContext("2d");
           },
-          trackUserLocation: true,
-          showUserHeading: true,
-        })
-      );
+      
+          render: function () {
+            const duration = 1000;
+            const t = (performance.now() % duration) / duration;
+      
+            const radius = (size / 2) * 0.3;
+            const outerRadius = (size / 2) * 0.7 * t + radius;
+            const context = this.context;
+      
+            context.clearRect(0, 0, this.width, this.height);
+            context.beginPath();
+            context.arc(
+              this.width / 2,
+              this.height / 2,
+              outerRadius,
+              0,
+              Math.PI * 2
+            );
+            context.fillStyle = `rgba(255, 200, 200, ${1 - t})`;
+            context.fill();
+      
+            context.beginPath();
+            context.arc(this.width / 2, this.height / 2, radius, 0, Math.PI * 2);
+            context.fillStyle = "rgba(255, 100, 100, 1)";
+            context.strokeStyle = "white";
+            context.lineWidth = 2 + 4 * (1 - t);
+            context.fill();
+            context.stroke();
+      
+            this.data = context.getImageData(0, 0, this.width, this.height).data;
+      
+            map.current.triggerRepaint();
+      
+            return true;
+          },
+        };
+      };
+      
+      map.current.on("load", () => {
+        mockMeteoriteData.meteorites.forEach((meteorite, index) => {
+          const pulsingDot = createPulsingDot();
+          const imageId = `pulsing-dot-${index}`;
+      
+          map.current.addImage(imageId, pulsingDot, { pixelRatio: 2 });
+      
+          map.current.addSource(`dot-point-${index}`, {
+            type: "geojson",
+            data: {
+              type: "FeatureCollection",
+              features: [
+                {
+                  type: "Feature",
+                  geometry: {
+                    type: "Point",
+                    coordinates: [parseFloat(meteorite.reclong), parseFloat(meteorite.reclat)],
+                  },
+                },
+              ],
+            },
+          });
+      
+          map.current.addLayer({
+            id: `layer-with-pulsing-dot-${index}`,
+            type: "symbol",
+            source: `dot-point-${index}`,
+            layout: {
+              "icon-image": imageId,
+            },
+          });
+        });
+      });
+
+      // map.current.addControl(
+      //   new mapboxgl.GeolocateControl({
+      //     positionOptions: {
+      //       enableHighAccuracy: true,
+      //     },
+      //     trackUserLocation: true,
+      //     showUserHeading: true,
+      //   })
+      // );
 
       // Create a marker and add it to the map
       // marker.current = new mapboxgl.Marker()
