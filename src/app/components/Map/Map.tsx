@@ -28,20 +28,22 @@ const Map: React.FC<MapProps> = ({ lat, lon, accessToken }) => {
       const container: string | HTMLElement = mapContainer.current;
       map.current = new mapboxgl.Map({
         container,
-        style: 'mapbox://styles/mapbox/streets-v12',
+        // style: 'mapbox://styles/mapbox/streets-v12', 
+        style: 'mapbox://styles/mapbox/satellite-v9', // Could turn this into a state that sets onClick()
+        projection: 'globe',
         center: [lon, lat],
         zoom: zoom,
       });
 
-      // map.current.on('style.load', () => {
-      //   map.current.setFog({
-      //     color: 'rgb(186, 210, 235)', // Lower atmosphere
-      //     'high-color': 'rgb(36, 92, 223)', // Upper atmosphere
-      //     'horizon-blend': 0.02, // Atmosphere thickness (default 0.2 at low zooms)
-      //     'space-color': 'rgb(11, 11, 25)', // Background color
-      //     'star-intensity': 0.6 // Background star brightness (default 0.35 at low zoooms )
-      //   });
-      // });
+      map.current.on('style.load', () => {
+        map.current.setFog({
+          color: 'rgb(186, 210, 235)', // Lower atmosphere
+          'high-color': 'rgb(36, 92, 223)', // Upper atmosphere
+          'horizon-blend': 0.02, // Atmosphere thickness (default 0.2 at low zooms)
+          'space-color': 'rgb(11, 11, 25)', // Background color
+          'star-intensity': 0.6 // Background star brightness (default 0.35 at low zoooms )
+        });
+      });
 
       map.current.addControl(
         new mapboxgl.GeolocateControl({
@@ -54,30 +56,28 @@ const Map: React.FC<MapProps> = ({ lat, lon, accessToken }) => {
       );
 
       // Create a marker and add it to the map
-      marker.current = new mapboxgl.Marker()
-        .setLngLat([lon, lat])
-        .addTo(map.current);
-      // Repeating this will add more markers to the map
-      // Need to map through an array of locations to render a cluster
-      // From there, add popups with AQI data from API
-      
-        
-    } else if (map.current && marker.current) {
-      // Check if the user's input coordinates have changed
-      const currentCenter = map.current.getCenter();
-      if (lat !== currentCenter.lat || lon !== currentCenter.lng) {
-        // Use the `flyTo` method to smoothly transition to the new coordinates
-        map.current.flyTo({
-          center: [lon, lat],
-          zoom: 17, // You can set the desired zoom level here
-          essential: true, // This ensures the animation is not canceled by user interactions
-          duration: 15000
-        });
+      // marker.current = new mapboxgl.Marker()
+      //   .setLngLat([lon, lat])
+      //   .addTo(map.current);        
+    } 
+    // else if (map.current && marker.current) {
+    //   // Check if the user's input coordinates have changed
+    //   const currentCenter = map.current.getCenter();
+    //   if (lat !== currentCenter.lat || lon !== currentCenter.lng) {
+    //     // Use the `flyTo` method to smoothly transition to the new coordinates
+    //     map.current.flyTo({
+    //       center: [lon, lat],
+    //       zoom: 17, // You can set the desired zoom level here
+    //       essential: true, // This ensures the animation is not canceled by user interactions
+    //       duration: 15000
+    //     });
 
-        // Update the marker's position
-        marker.current.setLngLat([lon, lat]);
-      }
-    }
+    //     // Update the marker's position
+    //     marker.current.setLngLat([lon, lat]);
+    //   }
+    // }
+
+    
   }, [lat, lon, zoom]);
 
   return (
