@@ -2,7 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import SearchBar from './components/SearchBar';
+import WeatherDisplay from './components/WeatherDisplay'
 import Draggable from 'react-draggable';
+import ToggleBar from './components/ToggleBar';
 
 const Map: any = dynamic(
   () => import('@/app/components/Map/Map'),
@@ -23,8 +25,10 @@ export default function Home() {
   const defaultLatitude = 35.6764;
   const defaultLongitude = 139.6500;
 
-  const [lat, setLat] = useState<number | string>(defaultLatitude);
-  const [lon, setLon] = useState<number | string>(defaultLongitude);
+  const [lat, setLat] = useState<number | undefined>(defaultLatitude);
+  const [lon, setLon] = useState<number | undefined>(defaultLongitude);
+  // isISSDisplayed
+  // isMereoriteDisplayed
 
 
   const [data, setData] = useState<{
@@ -63,6 +67,7 @@ export default function Home() {
 
 
 
+
   return (
 
     <div className="font-[family-name:var(--font-geist-sans)]">
@@ -76,5 +81,6 @@ export default function Home() {
       /> 
 
     </div>
+    </>
   );
 }
