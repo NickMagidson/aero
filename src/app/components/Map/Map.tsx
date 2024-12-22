@@ -104,7 +104,7 @@ const Map: React.FC<MapProps> = ({ lat, lon, accessToken }) => {
       };
       
       map.current.on("load", () => {
-        mockMeteoriteData.meteorites.forEach((meteorite, index) => {
+        mockMeteoriteData.meteorites.map((meteorite, index) => {
           const pulsingDot = createPulsingDot();
           const imageId = `pulsing-dot-${index}`;
       
@@ -121,8 +121,8 @@ const Map: React.FC<MapProps> = ({ lat, lon, accessToken }) => {
                     type: "Point",
                     coordinates: [parseFloat(meteorite.reclong), parseFloat(meteorite.reclat)],
                   },
-                },
-              ],
+                properties: {},
+              }],
             },
           });
       
