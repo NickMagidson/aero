@@ -26,6 +26,7 @@ const Map: React.FC<MapProps> = ({ lat, lon, accessToken }) => {
   const ISS_API_URL = 'http://api.open-notify.org/iss-now.json';
 
   useEffect(() => {
+    
     if (!map.current && mapContainer.current) {
       const container: string | HTMLElement = mapContainer.current;
       map.current = new mapboxgl.Map({
