@@ -36,7 +36,6 @@ const Map: React.FC<MapProps> = ({ lat, lon, accessToken }) => {
         projection: 'globe',
         center: [lon, lat],
         zoom: zoom,
-        projection: 'globe'
       });
 
       map.current.on('style.load', () => {
