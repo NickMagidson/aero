@@ -22,8 +22,8 @@ export default function Home() {
   const OPENWEATHER_API_KEY = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY
 
   // New York coordinates for reference
-  const defaultLatitude = 40.7128;
-  const defaultLongitude = -74.0060;
+  const defaultLatitude = 35.6764;
+  const defaultLongitude = 139.6500;
 
   const [lat, setLat] = useState<number | undefined>(defaultLatitude);
   const [lon, setLon] = useState<number | undefined>(defaultLongitude);
@@ -65,21 +65,21 @@ export default function Home() {
     setLon(newLon);
   };
 
-  
+
+
 
   return (
-    <>
-      <div className="font-[family-name:var(--font-geist-sans)] w-full h-full flex flex-row">
-        <Map accessToken={MAPBOX_API_KEY} lat={lat} lon={lon} /> 
-        <div className='flex flex-col items-center w-full m-2 ' >
-          <SearchBar setLat={handleSearchLat} setLon={handleSearchLon}  />
-          <WeatherDisplay title={''} count={0} />
-        </div>
-        <div className='flex flex-col w-full items-end'>
-          <ToggleBar />
-        {/* <GeneralInfo /> */}
-        </div>
-      {/* <LatLonDisplay lat={lat} lon={lon} /> */}
+
+    <div className="font-[family-name:var(--font-geist-sans)]">
+      {/* <div className='flex w-auto m-2 sm:w-2/4 md:w-1/2s lg:w-1/4' >
+        <SearchBar setLat={handleSearchLat} setLon={handleSearchLon}  />
+      </div> */}
+      <Map 
+        accessToken={MAPBOX_API_KEY} 
+        lat={lat} 
+        lon={lon} 
+      /> 
+
     </div>
     </>
   );
